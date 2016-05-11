@@ -1,0 +1,1233 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>HOU+Flood</name>
+		<Placemark>
+			<name>White Oak @ Beauchamp Street</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.373747,29.781727,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>45 North @ Crosstimbers</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.381547,29.828596000000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Telge Rd @ Little Cypress Creek</name>
+			<description><![CDATA[Near Spring Cypress Rd]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.65332400000001,29.991144,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fondren Rd @ 59</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.518184,29.700691,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Clinton Drive @ McCarthy St</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.283512,29.750145,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>I-10 right @ Washington Ave</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.426319,29.777524,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>45N @ Houston Avenue</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.37174,29.787659000000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Quitman Street @ 59</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.344728,29.783540000000002,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Quitman Street @ 45/I-10/White Oak Bayou</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.367336,29.779530000000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Longwood @ Little Cypress Creek</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.638971,29.983435,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Polk St @ Cullen Blvd</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.339514,29.740190000000002,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>W 43rd St &amp; Oak Forest Dr</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.434499,29.828189,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Saums @ Mayde Creek</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.704033,29.800292000000002,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>45N Entrance Ramp @ Travis Near UHD</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.360699,29.766708000000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Studemont @ I-10 Dip</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.387807,29.777419,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Louisiana @ I-10 west on ramp</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.362513,29.764873,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>45 N near Conroe @ 1488</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.461846,30.236640000000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Commerce St between Travis &amp; Milam</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.360401,29.76423,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>288 @ Holly Hall St Underpass</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.378843,29.686683,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fannin St @ Commerce St</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.358619,29.763139000000002,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Memorial between Shepherd &amp; Sawyer</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.409304,29.761855,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Harborside Galveston between 51st &amp; 25</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-94.82656,29.298300999999995,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Walker Street &amp; Dynamo Stadium</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.352434,29.750523,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>45 HOV Lane from Cullen to Monroe (Hobby Airport Exit)</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.34215,29.731724,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>45 HOV Lane entranve @ Monroe to Cullen BLVD</name>
+			<description><![CDATA[There's no where for the water to recede in the HOV Lane. When this area floods, DO NOT TAKE HOV LANE!]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.262409,29.662307999999996,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>HOBBY-Monroe Rd between Airport &amp; Meldrum</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.265122,29.650279000000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Barker Cypress Between Park Row &amp; Saums Rd</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.688435,29.79385,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Greenhouse Rd Between Saums Rd &amp; Park Row Drive</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.7046503,29.7960382,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Monroe &amp; 45</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.26236600000001,29.668963,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>MED CNTR-S Main @ Holcombe Tunnel</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.405224,29.705818,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>9200 Lake Park Dr Block</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.261152,29.844825000000004,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>5300 Willow Glen Dr Block</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.343297,29.671513,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2200 Des Jardines St Block</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.33356510000002,29.680991400000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>HOBBY-Airport Blvd Between Ruthby &amp; Monroe</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.269532,29.658147999999997,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>HOBBY-Airport Blvd Between Monroe &amp; Ruthby</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-94.9756049,29.495829500000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>1315 Tulane St</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.40268200000003,29.795003000000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Kipling St @ Mulberry St</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.3975487,29.7403831,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 38</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.360699,29.766708000000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 39</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.6323814,29.7479843,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Flooding on Royalton between Westpark and Glenmont</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.4722643,29.722719100000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 41</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.76953890000001,29.993597000000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 42</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.453124,29.732930299999996,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Turn around under 59</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.2566147,30.0286775,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 44</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.2586317,30.0294949,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>W Airport Blvd</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.54637910000001,29.6416632,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Gessner/290 Underpass</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5410147,29.866772700000002,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 47</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.4899025,29.736544999999996,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 48</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.42316910000001,29.6981557,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Roberts Cemetary</name>
+			<description><![CDATA[Bridge under several feet of water.]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.7632732,30.0869195,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Nicholes Sawmill</name>
+			<description><![CDATA[Bridge under several feet of water.]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.7747746,30.1158049,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 51</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.7528877,30.1440138,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 53</name>
+			<description><![CDATA[Road under several feet of water.]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.8040428,30.140376800000002,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Hegar</name>
+			<description><![CDATA[Bridge under several feet of water.]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.84198,30.085953999999997,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 56</name>
+			<description><![CDATA[Bridge under several feet of water.]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.7021189,30.0990613,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 57</name>
+			<description><![CDATA[Bridge under several feet of water.]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.6890726,30.116955699999995,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 58</name>
+			<description><![CDATA[Bridge under several feet of water.]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.7144356,30.1381871,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 59</name>
+			<description><![CDATA[Bridge under several feet of water.]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.7108736,30.140079900000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 60</name>
+			<description><![CDATA[Road under several feet of water.]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.6983852,30.111090200000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 61</name>
+			<description><![CDATA[Bridge under several feet of water.]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.7350886,30.093779600000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 62</name>
+			<description><![CDATA[Bridge under several feet of water.]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.810008,30.1787999,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Northern Point Subdivision</name>
+			<description><![CDATA[Streets submerged in water]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.585475,30.0442071,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Grand Parkway and Westpark Tollway feeder roads</name>
+			<description><![CDATA[Grand Parkway and Westpark Tollway feeder roads are a dangerous flash flooding area]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.7764053,29.7011006,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Westpark Tollway feeder road - eastbound</name>
+			<description><![CDATA[Westpark Tollway feeder road - eastbound lanes flood regularly and are dangerous low water crossings]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.7242203,29.704231900000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 64</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5708623,29.655462999999997,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Allen Parkway at Waugh</name>
+			<description><![CDATA[Allen Parkway at Waugh]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.397892,29.761397000000002,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Allen Parkway at Montrose</name>
+			<description><![CDATA[Allen Parkway at Montrose]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<Point>
+				<coordinates>-95.392313,29.761546100000004,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 67</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.422225,29.771231800000002,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cypresswood Dr @ 249 underpass</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.56749340000002,29.9811077,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Appartments and Perry's Steak House under water</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5567646,29.987724200000002,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Champion Forest Dr. bridge over Cypress Creek </name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5307579,29.998057100000004,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cutten Rd and Cypresswood</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5515075,29.990642099999995,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cypresswood Dr and Guinstead Dr</name>
+			<description><![CDATA[<img src="https://lh6.googleusercontent.com/proxy/r4KbWbx3LAr8Qwfy7Fb8CzOnP1SUXDmAB9NcaXadbV4Af18uuEAt5UKDGNu17nFd2u2SkN6ijQrxLlaW1vwAVgBOxxxwbLqDU2d-s7itzcCKBkhvgnvhZWzH9JmkX0WG5w-cEFbdG2m-JLBuuqQWqzpELH6NJJGOEkLXurBVHu1p" height="200" width="auto" /><br><br>Two sunk cars. A cyclist went through the intersection with the water at chest height.]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<ExtendedData>
+				<Data name='gx_media_links'>
+					<value>https://lh6.googleusercontent.com/proxy/r4KbWbx3LAr8Qwfy7Fb8CzOnP1SUXDmAB9NcaXadbV4Af18uuEAt5UKDGNu17nFd2u2SkN6ijQrxLlaW1vwAVgBOxxxwbLqDU2d-s7itzcCKBkhvgnvhZWzH9JmkX0WG5w-cEFbdG2m-JLBuuqQWqzpELH6NJJGOEkLXurBVHu1p</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>-95.5460572,29.993820000000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cypresswood  Dr and Champion Dr</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5412829,29.995404299999997,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Maplehurst Dr and Cypresswood Dr</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5376512,29.997267299999997,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Champion Forest Dr Bayou Bridge</name>
+			<description><![CDATA[<img src="https://lh6.googleusercontent.com/proxy/aPhjwC-tlg2G816qd_MgSXbEGKBPANvuUsUH_EJs4WZ77krmCY1IMTqo_V6qISr6RtGc-j_jbkgfJBEmBn-jIKw836t25vYOXJGDxPv8PpLvbNNmg7aQunJzGM_xKufSRZ5qd2PYqUbIJwQDOogPRqJa9KU5eMBhIJcsS4JJs7H7" height="200" width="auto" /><br><br>]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<ExtendedData>
+				<Data name='gx_media_links'>
+					<value>https://lh6.googleusercontent.com/proxy/aPhjwC-tlg2G816qd_MgSXbEGKBPANvuUsUH_EJs4WZ77krmCY1IMTqo_V6qISr6RtGc-j_jbkgfJBEmBn-jIKw836t25vYOXJGDxPv8PpLvbNNmg7aQunJzGM_xKufSRZ5qd2PYqUbIJwQDOogPRqJa9KU5eMBhIJcsS4JJs7H7</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>-95.5337566,30.004286899999997,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cypresswood Dr bridge near Dry Gully</name>
+			<description><![CDATA[<img src="https://lh6.googleusercontent.com/proxy/6LjmfMluJJhMI2uiIDa3_Dy6XYj3g4GLIcl1g0SpV8wrE3VU7sZ02bFQ76TO5PeOiJ4I8_AcOj-qpQgzWZ3dCHaRhysUB7h9ZIaQM3TEewm4FzLobLm7pZsXHZ0fRMq7jNplJnp7z3yRaV3gio3egRoblQlMjZEuWdReBJcG0DPT" height="200" width="auto" /><br><br><br><br><img src="https://lh6.googleusercontent.com/proxy/Cnjm6uAxMhIb_IJ16rT1_lbO9ItrN7h9H7ZIhZ-2MtiXGRP48mnCT-W38dWRoPY-tAtPzHu6RoTYJv0eZBwP9Knhj9l3J-OukbTHNvZrA_CyLoKSoTxaot8T_O1TNOyKeJgxydscKbCAX46kecAj47yv9dzznnGqQZKJLmC3rWeL" height="200" width="auto" /><br><br><img src="https://lh4.googleusercontent.com/proxy/NK8J9BzH1HkmmRUXrkOTvB_f5yXhImefIjsymC5bAfbXXeJC_WIU36XD96aK-J7muqCsSDa46hlRv0ka6CA1wrz5Ob3FdSF0qwAqgvkYVxVf6ntvvzTAW9RY7vT_Qq_bIL7R2hVx6-glTT8egqMYN1NKVZJKt-g8fefshfyDyvFOnDWwnjh5LuJhUFCtqGJnAaoRSze3qEAUDkTK5o9b7xTLGzVod08EQHm4dqvwGu4o128" height="200" width="auto" />]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<ExtendedData>
+				<Data name='gx_media_links'>
+					<value>https://lh6.googleusercontent.com/proxy/6LjmfMluJJhMI2uiIDa3_Dy6XYj3g4GLIcl1g0SpV8wrE3VU7sZ02bFQ76TO5PeOiJ4I8_AcOj-qpQgzWZ3dCHaRhysUB7h9ZIaQM3TEewm4FzLobLm7pZsXHZ0fRMq7jNplJnp7z3yRaV3gio3egRoblQlMjZEuWdReBJcG0DPT https://lh6.googleusercontent.com/proxy/Cnjm6uAxMhIb_IJ16rT1_lbO9ItrN7h9H7ZIhZ-2MtiXGRP48mnCT-W38dWRoPY-tAtPzHu6RoTYJv0eZBwP9Knhj9l3J-OukbTHNvZrA_CyLoKSoTxaot8T_O1TNOyKeJgxydscKbCAX46kecAj47yv9dzznnGqQZKJLmC3rWeL https://lh4.googleusercontent.com/proxy/NK8J9BzH1HkmmRUXrkOTvB_f5yXhImefIjsymC5bAfbXXeJC_WIU36XD96aK-J7muqCsSDa46hlRv0ka6CA1wrz5Ob3FdSF0qwAqgvkYVxVf6ntvvzTAW9RY7vT_Qq_bIL7R2hVx6-glTT8egqMYN1NKVZJKt-g8fefshfyDyvFOnDWwnjh5LuJhUFCtqGJnAaoRSze3qEAUDkTK5o9b7xTLGzVod08EQHm4dqvwGu4o128</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>-95.5298567,30.0034368,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 77</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.3823566,29.780134500000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Tranquil Park Dr and Maplehurst Dr</name>
+			<description><![CDATA[<img src="https://lh5.googleusercontent.com/proxy/T5iAx7gt0mw33nmstAhVjjvqDpFGOeNkCMZfWZBUbN5gv_4L_jL66JLIYEJ-1AKKlVUBeEzh4HfMNPUZez8h8ALhnsj8lK-jwcjnLEmBmIBXEOt6xk3kGcuzmHTvOkIXQsuCgWiK0lG_Xo52secc1mtksubvJRfDmWifEInh8TtQJmkASR4dkcMTiXsYZvkk-xBqHTw8WXGAX-LW5nK759QJ12PkZmIEQ4qIh0Y7tURfs3I" height="200" width="auto" /><br><br><br><br><img src="https://lh6.googleusercontent.com/proxy/GnqMHIN9qsS6bI_BRgFCQJ-z78OgbywaQu8D0tnazID_9FJlpw6y4R6ZaEa-0SbFE7kK5x6gIzY0T9vXy8XQQEVbKf-X2QwNplNU7e91J4XTu6iUXm-pSaA8Xpa9SaZ7CYZcOyarM3vZJwbS0hi1TReaWayb2n9fgub2Vgxi6DEf" height="200" width="auto" /><br><br><img src="https://lh4.googleusercontent.com/proxy/5HLIqvD-qVroA9q9sL4ZIbhY_NqTODPgVIsvSHcYKMvYDQw6tvUNrmKdVcRzaerMAQmqOd24nCU2RsSK1MBIFToFllZfoocvgEtgdJD3JgcF00MqW71OyOTkt7OlY8r8weDeHine4OJ4L-HInijyJYq9yDk" height="200" width="auto" /><br><br><img src="https://lh3.googleusercontent.com/proxy/DUIzOl_oknwhvGZyztmn75lsyhwImi0paqkXQ2-pvnDLmcn4QEXsNPhcwil_emg63oMymT4BhW0k-Grjm54qhFBYLkhSko2QKAPOsZQJwt0lARfqZ7i2_wlCvzTUgm4lYovFGUn2FHYJcJaoUEf8FHlphPs" height="200" width="auto" />]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<ExtendedData>
+				<Data name='gx_media_links'>
+					<value>https://lh5.googleusercontent.com/proxy/T5iAx7gt0mw33nmstAhVjjvqDpFGOeNkCMZfWZBUbN5gv_4L_jL66JLIYEJ-1AKKlVUBeEzh4HfMNPUZez8h8ALhnsj8lK-jwcjnLEmBmIBXEOt6xk3kGcuzmHTvOkIXQsuCgWiK0lG_Xo52secc1mtksubvJRfDmWifEInh8TtQJmkASR4dkcMTiXsYZvkk-xBqHTw8WXGAX-LW5nK759QJ12PkZmIEQ4qIh0Y7tURfs3I https://lh6.googleusercontent.com/proxy/GnqMHIN9qsS6bI_BRgFCQJ-z78OgbywaQu8D0tnazID_9FJlpw6y4R6ZaEa-0SbFE7kK5x6gIzY0T9vXy8XQQEVbKf-X2QwNplNU7e91J4XTu6iUXm-pSaA8Xpa9SaZ7CYZcOyarM3vZJwbS0hi1TReaWayb2n9fgub2Vgxi6DEf https://lh4.googleusercontent.com/proxy/5HLIqvD-qVroA9q9sL4ZIbhY_NqTODPgVIsvSHcYKMvYDQw6tvUNrmKdVcRzaerMAQmqOd24nCU2RsSK1MBIFToFllZfoocvgEtgdJD3JgcF00MqW71OyOTkt7OlY8r8weDeHine4OJ4L-HInijyJYq9yDk https://lh3.googleusercontent.com/proxy/DUIzOl_oknwhvGZyztmn75lsyhwImi0paqkXQ2-pvnDLmcn4QEXsNPhcwil_emg63oMymT4BhW0k-Grjm54qhFBYLkhSko2QKAPOsZQJwt0lARfqZ7i2_wlCvzTUgm4lYovFGUn2FHYJcJaoUEf8FHlphPs</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>-95.5384183,29.998224299999997,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Havering Ln and Tranquil Park Dr</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5376673,29.998753900000004,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 80</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.7037711,30.1839009,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>249 Spring Creek Bridge</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.6458139,30.119322200000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>2979 Spring Creek Bridge</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5967242,30.1345151,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Decker Prairie-Rosehill Rd and Tomball Parkway</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.6533456,30.1317569,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Hewlet Packard</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5840159,29.991013800000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Studemont and Memorial Dr</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.3920984,29.763073500000004,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 87</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5285048,30.004235800000004,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Stuebner Airline Rd and Cypresswood Dr</name>
+			<description><![CDATA[<img src="https://lh3.googleusercontent.com/proxy/882LPUJSgwKckN160h5CszRE5IxZej9dRgS56RIcJMcB34NcXoDNUQXLp8OHcyhcR6bJK15z-ejcnWtPq_ys0hCNn0l01wKNB2OOaEQEtdFPke5vUevonf4BJU3k4AW-unNHsjRbp6i2hFLLAYoavQ21eKc5T8THotQLZ3iFEojI" height="200" width="auto" /><br><br><br><br><img src="https://lh4.googleusercontent.com/proxy/UbWGjbpcR0nWmwozZ_MaRkkHZPNmHbSFPn9KMprmiRfnRVh64I-1im_RFI3KiGk5ZEhIshGX0RIlm9U91Nkuj2AG5WKgsL57EVkLUA2gKT_nsvzdfGLpIRa1roGjtr0etbrFMC1ZsA3daBvnWzq-zXz58wBoTPQynt-VUeby6gmz" height="200" width="auto" />]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<ExtendedData>
+				<Data name='gx_media_links'>
+					<value>https://lh3.googleusercontent.com/proxy/882LPUJSgwKckN160h5CszRE5IxZej9dRgS56RIcJMcB34NcXoDNUQXLp8OHcyhcR6bJK15z-ejcnWtPq_ys0hCNn0l01wKNB2OOaEQEtdFPke5vUevonf4BJU3k4AW-unNHsjRbp6i2hFLLAYoavQ21eKc5T8THotQLZ3iFEojI https://lh4.googleusercontent.com/proxy/UbWGjbpcR0nWmwozZ_MaRkkHZPNmHbSFPn9KMprmiRfnRVh64I-1im_RFI3KiGk5ZEhIshGX0RIlm9U91Nkuj2AG5WKgsL57EVkLUA2gKT_nsvzdfGLpIRa1roGjtr0etbrFMC1ZsA3daBvnWzq-zXz58wBoTPQynt-VUeby6gmz</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>-95.6968704,29.8969937,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 89</name>
+			<description><![CDATA[<img src="https://lh3.googleusercontent.com/proxy/8pe-wv5rQCVrP7wKKb2pCuFwJNvoJ_zdyKr3YFm8R1fVn0CIfZmTVeep0cFxbz83uQesrTNVp3_DtxBNo3oehEUpN9HUjpxWX6138t_tsW_3UagO71RmBevVCc_kJjH60gdrv4E3Yn1Cavl2KcUbOQicxQncj6BbzuYl3Dhhdf4" height="200" width="auto" /><br><br><br><br><img src="https://lh4.googleusercontent.com/proxy/n--i4Bh8ws_fBRTGlL3DDriLcYHtStUaAyGyKVMNeBUWA63852r5RSlp4uB_Bs5xDZRF54PvnJFTWwVClX54xctX6kHishnPHDP0up3IOOiZIJbsauopZ6jTO2kVp1tNKFOkIcp8q7jMjJC8gmYvKro0IgAtKQmTbj7zsZggbjqK" height="200" width="auto" />]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<ExtendedData>
+				<Data name='gx_media_links'>
+					<value>https://lh3.googleusercontent.com/proxy/8pe-wv5rQCVrP7wKKb2pCuFwJNvoJ_zdyKr3YFm8R1fVn0CIfZmTVeep0cFxbz83uQesrTNVp3_DtxBNo3oehEUpN9HUjpxWX6138t_tsW_3UagO71RmBevVCc_kJjH60gdrv4E3Yn1Cavl2KcUbOQicxQncj6BbzuYl3Dhhdf4 https://lh4.googleusercontent.com/proxy/n--i4Bh8ws_fBRTGlL3DDriLcYHtStUaAyGyKVMNeBUWA63852r5RSlp4uB_Bs5xDZRF54PvnJFTWwVClX54xctX6kHishnPHDP0up3IOOiZIJbsauopZ6jTO2kVp1tNKFOkIcp8q7jMjJC8gmYvKro0IgAtKQmTbj7zsZggbjqK</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>-95.5253506,30.008342399999997,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cypresswood Dr and Squyres Rd</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5245245,30.0061312,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cutten Rd and Vintage Preserve Parkwy</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5589211,29.9943496,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 91</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.76953890000001,29.993597000000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>99 and Clay Rd</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.7602692,29.832602900000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Both apartment entrances @ Cypresswood and Schroeder Dr</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5579019,29.986994800000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 94</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5564964,29.9890345,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 95</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5565071,29.9873618,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 96</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5565608,29.9900752,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Dobbin Hufsmith Rd @ 2978</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.596869,30.136971599999995,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 98</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.6005758,30.1388041,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cypresswood Dr @ Castletown Park Ct</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5106521,30.013145499999997,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cypresswood Dr @ Minister Dr</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5115533,30.012550900000004,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cypresswood Dr @ Cassandra Park St</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5125403,30.0120493,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cypresswood Dr @ Southampton Dr</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5135489,30.011491800000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 103</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5139136,30.011083100000004,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cypresswood @ N Greenfield Dr</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5092573,30.0139259,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Champion Forest Dr </name>
+			<description><![CDATA[<img src="https://lh5.googleusercontent.com/proxy/FOmPeB4ogS6wibs9Vs3m3b55uDEDC4BokrvRjlRGGfJZHaHdAkCT6Iw94GdW4MOm1DDpu-EcSSsWEx1bimMnMeekrBQbEyWc6e-U-4CyInSweua2Xzhx8e-odKQj9TPAV7Zih6UgPaI4ZolrKejPVurbgDEsRaFvW2zi8DZhkjKu" height="200" width="auto" /><br><br><br><br><img src="https://lh4.googleusercontent.com/proxy/LiFflSuPE73fhBNKRJOxQwLJOB-fXe2Uesp-QRCGhvEtuodLbRD2fWTbQp1SmuQ6_4Rv5KQWJodM4Bk2v2WckmipWaB0FJie1Lm2KEle73-9HMN5s8ikIiHTozp6nEdppsDBXBz3jgNwhgGlGLuWGa3NJ30" height="200" width="auto" />]]></description>
+			<styleUrl>#icon-503-DB4436</styleUrl>
+			<ExtendedData>
+				<Data name='gx_media_links'>
+					<value>https://lh5.googleusercontent.com/proxy/FOmPeB4ogS6wibs9Vs3m3b55uDEDC4BokrvRjlRGGfJZHaHdAkCT6Iw94GdW4MOm1DDpu-EcSSsWEx1bimMnMeekrBQbEyWc6e-U-4CyInSweua2Xzhx8e-odKQj9TPAV7Zih6UgPaI4ZolrKejPVurbgDEsRaFvW2zi8DZhkjKu https://lh4.googleusercontent.com/proxy/LiFflSuPE73fhBNKRJOxQwLJOB-fXe2Uesp-QRCGhvEtuodLbRD2fWTbQp1SmuQ6_4Rv5KQWJodM4Bk2v2WckmipWaB0FJie1Lm2KEle73-9HMN5s8ikIiHTozp6nEdppsDBXBz3jgNwhgGlGLuWGa3NJ30</value>
+				</Data>
+			</ExtendedData>
+			<Point>
+				<coordinates>-95.532496,30.0008631,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 106</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.4966831,30.0201315,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 107</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.4857826,30.025259199999997,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Underpass at 2920 on HWY 99</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5571294,30.0749897,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 109</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.6368446,29.813391300000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 110</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.6175327,29.812870000000004,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 111</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.6273174,29.8132423,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>North Eldridge @ Clay Rd</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.6039715,29.833421900000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 113</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5760765,29.831783900000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 114</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.591011,29.831635,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Chimney Rock south of Richmond</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.4765987,29.727713000000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fry &amp; Saums Rd.</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.7188129,29.800507,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 106</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.7702255,29.9785056,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 107</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.769453,29.9499891,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 108</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.7667065,29.940209099999997,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 109</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.7591534,29.9044277,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 110</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.75812340000002,29.8899925,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 111</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.7560635,29.8753691,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Jones Rd from Grant to Louetta</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.58762070000002,29.996366,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Jones Rd from Grant to Louetta</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5850887,29.967836100000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Jones Rd from Grant to Louetta</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5838013,29.9764424,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Jones Rd from Grant to Louetta</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5862045,29.982780399999996,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 127</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.6172752,29.791866799999998,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 128</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.6458569,29.835655600000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 129</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.645256,29.795740100000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 130</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.6459427,29.8132423,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 131</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.6456852,29.830480900000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 132</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.6445694,29.7781603,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 133</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.6445694,29.78777,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 134</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5883074,29.9849364,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 135</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5876637,29.9890252,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 137</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5721766,29.9877382,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 139</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.57289,29.9876174,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 140</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5766773,29.988235299999996,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 141</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5742848,29.988597700000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 143</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5701005,29.9847041,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 144</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5713987,29.982566700000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 145</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5816555,29.993717799999995,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 146</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5830503,29.989173900000004,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 147</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.57861390000001,29.991817500000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 149</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.578866,29.991910500000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 150</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.581575,29.9914621,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 151</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5776536,29.991385400000002,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 152</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5768758,29.990330800000002,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 153</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5749071,29.9900752,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 154</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.575701,29.989350400000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 155</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5728257,29.9882539,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 156</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5730188,29.980670900000003,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 157</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.3786016,29.712469500000005,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 158</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.3781724,29.7124136,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Point 159</name>
+			<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+			<Point>
+				<coordinates>-95.5600047,29.985122300000004,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Style id='icon-503-DB4436-normal'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-503-DB4436-highlight'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-503-DB4436'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-503-DB4436-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-503-DB4436-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-503-DB4436-nodesc-normal'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='icon-503-DB4436-nodesc-highlight'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='icon-503-DB4436-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-503-DB4436-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-503-DB4436-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+	</Document>
+</kml>

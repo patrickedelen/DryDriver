@@ -1,0 +1,2 @@
+Current Data Sources:
+Right now we have data from this google map: https://www.google.com/maps/d/u/0/viewer?mid=1bKm78yhnQE28_QKbI10Z5j0qtM8 and should be able to get some from emergency reports of stranded vehicles.
