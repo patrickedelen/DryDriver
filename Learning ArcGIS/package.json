@@ -1,0 +1,11 @@
+{
+  "name": "larcgis",
+  "version": "0.0.1",
+  "description": "Learning ArcGIS",
+  "main": "arcg.js",
+  "author": "Patrick Edelen",
+  "license": "MIT",
+  "dependencies": {
+    "geojson-utils": "^1.1.0"
+  }
+}
