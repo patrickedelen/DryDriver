@@ -1,0 +1,6 @@
+c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver Console Backend\bin\Debug\Dry Driver Console Backend.exe.config
+c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver Console Backend\bin\Debug\Dry Driver Console Backend.exe
+c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver Console Backend\bin\Debug\Dry Driver Console Backend.pdb
+c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver Console Backend\obj\Debug\Dry Driver Console Backend.csprojResolveAssemblyReference.cache
+c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver Console Backend\obj\Debug\Dry Driver Console Backend.exe
+c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver Console Backend\obj\Debug\Dry Driver Console Backend.pdb
