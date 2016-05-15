@@ -6,7 +6,40 @@
   src="http://maps.googleapis.com/maps/api/js">
   </script>
 
-  <script>
+<script>
+  var loc = document.getElementById("c_location");
+
+  function getLocation() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else { 
+          loc.value = "Geolocation is not supported by this browser.";
+      }
+  }
+
+  function showPosition(position) {
+      alert(position.coords.latitude);
+      // loc.value = "works";
+      document.getElementById("c_location").setAttribute('value', position.coords.latitude + 
+      "," + position.coords.longitude);  
+  }
+
+  function showError(error) {
+      switch(error.code) {
+          case error.PERMISSION_DENIED:
+              loc.value = "User denied the request for Geolocation."
+              break;
+          case error.POSITION_UNAVAILABLE:
+              loc.value = "Location information is unavailable."
+              break;
+          case error.TIMEOUT:
+              loc.value = "The request to get user location timed out."
+              break;
+          case error.UNKNOWN_ERROR:
+              loc.value = "An unknown error occurred."
+              break;
+      }
+  }
   function initialize() {
     var mapProp = {
       center:new google.maps.LatLng(51.508742,-0.120850),
@@ -23,12 +56,6 @@
     var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
   }
   google.maps.event.addDomListener(window, 'load', initialize);
-
-  function seePlatform() {
-    var x = "Platform: " + navigator.platform;
-    // document.getElementById("demo").innerHTML = x;
-    alert(x);
-  }
   </script>
 
 
@@ -54,7 +81,7 @@
     <ul>
       <!-- <li><a class="btn-floating red"><i class="material-icons">share</i></a></li> -->
       <!-- <li><a class="btn-floating yellow darken-1" onclick="myFunction();"><i class="material-icons">format_quote</i></a></li> -->
-      <li><a class="btn-floating green"><i class="material-icons">share</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons" onclick="$('#modal2').openModal();" href="#">share</i></a></li>
       <li><a class="btn-floating blue"><i class="material-icons" onclick="$('#modal1').openModal();" href="#">report_problem</i></a></li>
     </ul>
   </div>
@@ -63,7 +90,7 @@
     <ul class="collapsible" data-collapsible="accordion">
     <li>
       <div class="collapsible-header"><input type="text" name="finalAddr" placeholder="Enter Destination"></div>
-      <div class="collapsible-body"><input type="text" name="addr" placeholder="Current Location"></div>
+      <div class="collapsible-body"><input onclick="getLocation();" id="c_location" type="text" name="addr" placeholder="Current Location"></div>
       <div class="collapsible-body"><a class="btn-floating btn-medium waves-effect waves-light blue" style="float:right;"><i class="material-icons">navigation</i></a></div>
     </li>
    </ul>
@@ -80,17 +107,19 @@
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
     </div>
   </div>
-  <div id="modal1" class="card modal bottom-sheet">
+
+  <div id="modal2" class="card modal bottom-sheet">
     <div class="modal-content">
-      <h4>Report Location</h4>
-      <p>Do you want to report your location as flooded?</p>
+      <h4>Share Location</h4>
+      <p>Placeholder for location sharing</p>
     </div>
     <div class="modal-footer">
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Yes</a>
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
     </div>
   </div>
-  
+
+
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
