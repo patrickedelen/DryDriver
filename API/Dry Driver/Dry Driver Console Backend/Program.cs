@@ -37,8 +37,8 @@ namespace Dry_Driver_Console_Backend
                         if (stringData.Count() > 8)
                         {
 
-                            floodData.Cordinate[0] = decimal.Parse(stringData[2]);
-                            floodData.Cordinate[1] = decimal.Parse(stringData[1]);
+                            floodData.Cordinate[0] = decimal.Parse(stringData[2]); //Longitud
+                            floodData.Cordinate[1] = decimal.Parse(stringData[1]); //Latitud
                             floodData.Address = stringData[3].Trim();
                             floodData.CreateDate = DateTime.Parse(stringData[4]);
                             if (stringData[5].Trim() != "NULL")
