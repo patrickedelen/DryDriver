@@ -40,7 +40,7 @@ namespace Dry_Driver_Console_Backend
         }
 
         [DataMember]
-        public decimal[] Cordinate
+        public decimal[] Coordinates
         {
             get
             {
