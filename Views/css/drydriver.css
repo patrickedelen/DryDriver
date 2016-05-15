@@ -1,0 +1,13 @@
+
+#googleMap {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;    
+}
+
+.mainAddr div{
+    margin-left:20%; 
+    width:60%;
+}
