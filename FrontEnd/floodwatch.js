@@ -1,5 +1,6 @@
 //require basic stuff
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mongoose = require('mongoose');
@@ -7,6 +8,9 @@ var bodyParser = require('body-parser');
 var bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({ extended: false }));
+
+//set the static route
+app.use('/public', express.static('public'));
 
 //require app code
 var route = require('./app/route');

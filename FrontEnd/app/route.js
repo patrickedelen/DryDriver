@@ -34,7 +34,7 @@ function decode(polylineInput) {
 		element[1] = element[0];
 		element[0] = temp;
 
-		var value = [
+		var value =1 [
 			element[0],
 			element[1] 
 		];
@@ -75,7 +75,7 @@ module.exports = function(request, callback){
 			//console.log(jsonData);
 
 			//create boxes
-			var boxes = boxer.box(jsonData, .4);
+			var boxes = boxer.box(jsonData, .5);
 
 			//finishes the polygons of the boxes
 			boxes.forEach(function(element){

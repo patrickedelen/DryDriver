@@ -8,10 +8,23 @@ var search = require('./search');
 
 var Promise = require('bluebird');
 
+//mongodb model
+var Event = require('./models/event.js');
+
 //callback function
 
 
 module.exports = function(app) {
+	app.get('/', function(req, res) {
+		res.sendFile(__dirname + '/index.html');
+	});
+	
+	app.all('/route', function(req, res, next) {
+	  res.header("Access-Control-Allow-Origin", "*");
+	  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+	  next();
+	 });
+
 	app.post('/route', function(req, res) {
 
 		var params = {
@@ -34,7 +47,17 @@ module.exports = function(app) {
 				
 			});
 		
-		
+	});
+
+	app.all('/report', function(req, res, next) {
+	  res.header("Access-Control-Allow-Origin", "*");
+	  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+	  next();
+	 });
+
+	app.post('/report', function(req, res) {
+		console.log(req.body.Coordinates);
+
 	});
 
 }
