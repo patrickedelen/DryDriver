@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,7 @@ namespace Dry_Driver_Console_Backend
     {
         static void Main(string[] args)
         {
-            FlodDataCollection result = new FlodDataCollection();
-            result.Items = new List<FlodData>();
+            List<BsonDocument> result = new List<BsonDocument>();
 
             WebClient webClient = new WebClient();
             Stream stream = webClient.OpenRead("http://houstontx.gov/heatmaps/datafiles/floodingheatmap12m.txt");
@@ -33,40 +33,41 @@ namespace Dry_Driver_Console_Backend
                     {
 
                         FlodData floodData = new FlodData();
-                        
-                        floodData.Cordinate[0] = decimal.Parse(stringData[1]);
-                        floodData.Cordinate[1] = decimal.Parse(stringData[2]);
-                        floodData.Address = stringData[3];
-                        floodData.CreateDate = DateTime.Parse(stringData[4]);
-                        if(stringData[5].Trim() !="NULL")
-                            floodData.ClosedDate = DateTime.Parse(stringData[5]);
-                        floodData.SourceType = "311";
-                        floodData.MetaData.CaseType = stringData[7];
-                        floodData.MetaData.CaseNumber = long.Parse(stringData[8]);
+                        if (stringData.Count() > 8)
+                        {
 
-                        result.Items.Add(floodData);
+                            floodData.Cordinate[0] = decimal.Parse(stringData[1]);
+                            floodData.Cordinate[1] = decimal.Parse(stringData[2]);
+                            floodData.Address = stringData[3].Trim();
+                            floodData.CreateDate = DateTime.Parse(stringData[4]);
+                            if (stringData[5].Trim() != "NULL")
+                                floodData.ClosedDate = DateTime.Parse(stringData[5]);
+                            floodData.SourceType = "311";
+                            floodData.MetaData.CaseType = stringData[7];
+                            floodData.MetaData.CaseNumber = long.Parse(stringData[8]);
+
+                            using (MemoryStream jsonStream = new MemoryStream())
+                            {
+                                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(FlodData));
+                                serializer.WriteObject(jsonStream, floodData);
+                                jsonStream.Position = 0;
+                                StreamReader sr = new StreamReader(jsonStream);
+                                string post = sr.ReadToEnd();
+
+                                result.Add(BsonSerializer.Deserialize<BsonDocument>(post));
+                            }
+                        }
                     }
 
                 }
             }
 
-            MemoryStream jsonStream = new MemoryStream();
-            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(FlodDataCollection));
-            serializer.WriteObject(jsonStream, result);
-
-            jsonStream.Position = 0;
-            StreamReader sr = new StreamReader(jsonStream);
-            string post = sr.ReadToEnd();
-
-            var connectionString = "mongodb://54.200.18.192:27017";
-
+            var connectionString = "mongodb://root:1234Pizza@ds023432.mlab.com:23432/drydriver";
             var client = new MongoClient(connectionString);
-            var database = client.GetDatabase("test");
-
-            var document = BsonSerializer.Deserialize<BsonDocument>(post);
-            var collection = database.GetCollection<BsonDocument>("test_collection");
-            await collection.InsertOneAsync(document);
-
+            var database = client.GetDatabase("drydriver");
+            var collection = database.GetCollection<BsonDocument>("events");
+            collection.InsertMany(result);
+            //Console.ReadKey();
         }
     }
 }

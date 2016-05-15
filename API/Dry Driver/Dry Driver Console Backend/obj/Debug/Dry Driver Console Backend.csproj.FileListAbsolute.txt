@@ -4,3 +4,8 @@ c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver C
 c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver Console Backend\obj\Debug\Dry Driver Console Backend.csprojResolveAssemblyReference.cache
 c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver Console Backend\obj\Debug\Dry Driver Console Backend.exe
 c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver Console Backend\obj\Debug\Dry Driver Console Backend.pdb
+c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver Console Backend\bin\Debug\MongoDB.Bson.dll
+c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver Console Backend\bin\Debug\MongoDB.Driver.Core.dll
+c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver Console Backend\bin\Debug\MongoDB.Driver.dll
+c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver Console Backend\bin\Debug\MongoDB.Bson.xml
+c:\users\cristobal\documents\visual studio 2015\Projects\Dry Driver\Dry Driver Console Backend\bin\Debug\MongoDB.Driver.xml
