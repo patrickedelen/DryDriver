@@ -34,7 +34,7 @@ function decode(polylineInput) {
 		element[1] = element[0];
 		element[0] = temp;
 
-		var value =1 [
+		var value = [
 			element[0],
 			element[1] 
 		];
@@ -58,10 +58,12 @@ module.exports = function(request, callback){
 			//variable to store seteps (higher res polylines)
 			var routeSteps = results.routes[0].legs[0].steps;
 			console.log('all results');
-			//console.log(results);
+			console.log(results);
+			console.log('Steps');
+
 
 			for(var i = 0; i < routeSteps.length; i++) {
-				//console.log(routeSteps[i].polyline);
+				console.log(routeSteps[i].polyline);
 			}
 
 			//find the points of the polyline
@@ -72,16 +74,29 @@ module.exports = function(request, callback){
 				'type': "MultiPoint",
 				'coordinates': polylineReturned
 			};
-			//console.log(jsonData);
+			console.log(jsonData);
 
 			//create boxes
-			var boxes = boxer.box(jsonData, .5);
+			var boxes;
+			var failed = false;
+			try{
+				boxes = boxer.box(jsonData, .5);
 
-			//finishes the polygons of the boxes
-			boxes.forEach(function(element){
-				var currentCoordinates = element.coordinates[0];
-				currentCoordinates.push(currentCoordinates[0]);
-			});
+			}catch(e){
+				console.log(e);
+				console.log('RouteBoxer Failed :(');
+				failed = true;
+			}
+
+			if(!failed) {
+				//finishes the polygons of the boxes
+				boxes.forEach(function(element){
+					var currentCoordinates = element.coordinates[0];
+					currentCoordinates.push(currentCoordinates[0]);
+				});
+			}
+
+			
 		} else {
 			console.log(err);
 		}

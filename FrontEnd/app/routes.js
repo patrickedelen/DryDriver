@@ -18,7 +18,7 @@ module.exports = function(app) {
 	app.get('/', function(req, res) {
 		res.sendFile(__dirname + '/index.html');
 	});
-	
+
 	app.all('/route', function(req, res, next) {
 	  res.header("Access-Control-Allow-Origin", "*");
 	  res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -36,6 +36,9 @@ module.exports = function(app) {
 				console.log('Callback called...');
 				search(boxes, response, function(pins, line, boxes){
 					console.log('It worked!');
+					if(!boxes){
+						boxes = [];
+					}
 					var sendData = {
 						'line': line,
 						'boxes': boxes,

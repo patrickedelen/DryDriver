@@ -19,7 +19,7 @@
   }
 
   function showPosition(position) {
-      alert(position.coords.latitude);
+      //alert(position.coords.latitude);
       // loc.value = "works";
       document.getElementById("c_location").setAttribute('value', position.coords.latitude + 
       "," + position.coords.longitude);  
@@ -165,7 +165,7 @@
 
        $.ajax({
                   type: 'POST',
-                  url: 'http://drydriver.pedelen.com/route',
+                  url: 'http://localhost:8008/route',
                   data: formData
               })
               .done(function(response) {
@@ -234,8 +234,14 @@
                       fillColor: '#000000',
                       fillOpacity: 0.35
                     }));
-                    //routeBoxes[index].setMap(map);
+                    routeBoxes[index].setMap(map);
                 });
+
+                
+                if(response.boxes.length === 0) {
+                  alert('Search along route failed...Maybe try a shorter route?');
+                  console.log('Search along route failed...Maybe try a shorter route?');
+                }
 
                 overlayElem.routePath.setMap(map);
 
