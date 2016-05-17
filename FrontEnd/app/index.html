@@ -89,9 +89,9 @@
   
   <div class="card z-depth-3" style="margin-left:20%; width:60%;">
   <form action="localhost:8008/route" method="post"enctype="application/x-www-form-urlencoded" id="form-ajax">
-    <ul class="collapsible" data-collapsible="accordion">
+    <ul class="collapsible">
     <li>
-      <div class="collapsible-header"><input id="destination" type="text" name="destination" placeholder="Enter Destination"></div>
+      <div class="collapsible-body"><input id="destination" type="text" name="destination" placeholder="Enter Destination"></div>
       <div class="collapsible-body"><input onclick="getLocation();" id="c_location" type="text" name="origin" placeholder="Current Location"></div>
       <div class="collapsible-body"><button id="route" class="btn-floating btn-medium waves-effect waves-light blue" style="float:right;"><i class="material-icons">navigation</i></button></div>
     </li>
@@ -165,7 +165,7 @@
 
        $.ajax({
                   type: 'POST',
-                  url: 'http://localhost:8008/route',
+                  url: 'http://localhost:8008/route', //localhost:8008/route for testing, drydriver.pedelen.com for prod
                   data: formData
               })
               .done(function(response) {
@@ -237,10 +237,10 @@
                     routeBoxes[index].setMap(map);
                 });
 
-                
+
                 if(response.boxes.length === 0) {
-                  alert('Search along route failed...Maybe try a shorter route?');
-                  console.log('Search along route failed...Maybe try a shorter route?');
+                  alert('Search along route failed...Maybe try a different route?');
+                  console.log('Search along route failed...Maybe try a different route?');
                 }
 
                 overlayElem.routePath.setMap(map);
