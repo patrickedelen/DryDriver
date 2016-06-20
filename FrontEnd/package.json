@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Save money; save lives",
   "dependencies": {
+    "anyboxer": "^0.4.9",
     "bluebird": "^3.3.5",
     "body-parser": "^1.15.1",
     "connect": "^3.4.1",

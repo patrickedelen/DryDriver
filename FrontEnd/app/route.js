@@ -11,6 +11,13 @@ var Promise = require('bluebird');
 var RouteBoxer = require('geojson.lib.routeboxer'),
     boxer = new RouteBoxer();
 
+//testing anyboxer
+var anyBoxer = require('anyboxer');
+var options = {
+	split: false,
+    reverse: true
+};
+
 //google maps api
 var GoogleMapsAPI = require('googlemaps');
 var mapsConfig = {
@@ -71,27 +78,39 @@ module.exports = function(request, callback){
 			//console.log(polylineReturned);
 
 			var jsonData = {
-				'type': "MultiPoint",
-				'coordinates': polylineReturned
+				"type": "FeatureCollection",
+				"features": [
+					{
+						"type": "Feature",
+						"geometry": {
+							"type": "MultiPoint",
+							"coordinates": polylineReturned
+						},
+						"properties": {
+							"fat": 5
+						}
+					},
+				]
 			};
 			console.log(jsonData);
 
 			//create boxes
 			var boxes;
 			var failed = false;
-			try{
-				boxes = boxer.box(jsonData, .5);
-
-			}catch(e){
-				console.log(e);
-				console.log('RouteBoxer Failed :(');
-				failed = true;
-			}
+				console.log('Calling anyboxer now!');
+				try {
+					boxes = anyBoxer(jsonData, options);
+				} catch(e) {
+					console.log('RouteBoxer failed...');
+					console.log(e);
+					failed = true;
+				}
+				console.log(boxes);
 
 			if(!failed) {
 				//finishes the polygons of the boxes
 				boxes.forEach(function(element){
-					var currentCoordinates = element.coordinates[0];
+					var currentCoordinates = element[0];
 					currentCoordinates.push(currentCoordinates[0]);
 				});
 			}

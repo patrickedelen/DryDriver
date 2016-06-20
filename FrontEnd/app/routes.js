@@ -26,6 +26,7 @@ module.exports = function(app) {
 	 });
 
 	app.post('/route', function(req, res) {
+		console.log('Route called...');
 
 		var params = {
 			origin: req.body.origin,
