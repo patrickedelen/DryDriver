@@ -14,7 +14,7 @@ var RouteBoxer = require('geojson.lib.routeboxer'),
 //testing anyboxer
 var anyBoxer = require('anyboxer');
 var options = {
-	split: false,
+	split: true,
     reverse: true
 };
 
@@ -109,10 +109,13 @@ module.exports = function(request, callback){
 
 			if(!failed) {
 				//finishes the polygons of the boxes
-				boxes.forEach(function(element){
-					var currentCoordinates = element[0];
-					currentCoordinates.push(currentCoordinates[0]);
-				});
+				
+				// boxes.forEach(function(element){
+				// 	var currentCoordinates = element[0];
+				// 	currentCoordinates.push(currentCoordinates[0]);
+				// });
+
+				console.log('Would make all polygons complete here');
 			}
 
 			
