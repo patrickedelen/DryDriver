@@ -6,3 +6,9 @@ Check it out at drydriver.pedelen.com!
 FloodWatch has been renamed to DryDriver. It has been chosen as a DevPost staff pick and can be viewed here: http://devpost.com/software/drydriver 
 
 Much <3 to DevPost - Team DryDriver
+
+## Current Build
+
+[![Build Status](https://travis-ci.org/patrickedelen/FloodWatch.svg?branch=master)](https://travis-ci.org/patrickedelen/FloodWatch)
+
+The current passing build can be viewed at https://drydriver.herokuapp.com/

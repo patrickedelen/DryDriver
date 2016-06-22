@@ -30,8 +30,9 @@ require('./app/routes.js')(app);
 
 console.log('running!');
 
-http.listen(8008, function() {
-	console.log('Server active on port 8008');
+var port = (process.env.PORT || 8008);
+http.listen(port, function() {
+	console.log('Server active on port ' + port);
 });
 //allow the web server to be closed
 function close(){	

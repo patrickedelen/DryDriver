@@ -130,7 +130,7 @@ module.exports = function(request, callback){
 				});
 
 				var complete = [];
-				while(coords.length > 4){
+				while(coords.length >= 4){
 					var temp =  [];
 					//add all coords to the complete array
 					temp.push(coords[0]);
@@ -146,6 +146,7 @@ module.exports = function(request, callback){
 					coords.shift();
 
 				}
+
 
 				//console.log(boxes);
 				console.log('complete polygons:');
