@@ -15,10 +15,9 @@ app.use('/public', express.static('public'));
 //require app code
 var route = require('./app/route');
 var search = require('./app/search');
-exports.test = 'hello world';
 
 // start up mongodb
-mongoose.connect('mongodb://root:1234Pizza@ds023432.mlab.com:23432/drydriver', function(err) {
+var db = mongoose.connect('mongodb://root:1234Pizza@ds023432.mlab.com:23432/drydriver', function(err) {
 //log database status
 	if(err) {
 		console.log(err);
@@ -34,7 +33,15 @@ console.log('running!');
 http.listen(8008, function() {
 	console.log('Server active on port 8008');
 });
+//allow the web server to be closed
+function close(){	
+	http.close(function() {
+		console.log('Web server stopped');
+		db.disconnect();
+		console.log('Mongoose stopped');
+	});
 
+}
 
 var params = {
 	origin: '29.7520018,-95.3755103',
@@ -47,3 +54,5 @@ function callB(boxes){
 }
 
 //route(params, callB);
+exports.close = close;
+exports.test = 'hello world';

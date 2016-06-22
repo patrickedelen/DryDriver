@@ -13,6 +13,7 @@ vows.describe('First test case').addBatch({
 		},
 		'Test the test': function(topic) {
 			assert.equal(topic, 'hello world');
+			floodwatch.close();
 		}
 	}
 }).run();

@@ -24,6 +24,10 @@
     "vows": "^0.8.1"
   },
   "scripts": {
-  "test": "node tests.js"
+  "start": "node FrontEnd/floodwatch.js"
+  },
+  "engines": {
+    "node": "4.4.5",
+    "npm": "3.9.6"
   }
 }
