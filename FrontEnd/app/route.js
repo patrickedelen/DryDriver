@@ -14,8 +14,7 @@ var RouteBoxer = require('geojson.lib.routeboxer'),
 //testing anyboxer
 var anyBoxer = require('anyboxer');
 var options = {
-	split: true,
-    reverse: true
+    reverse: false
 };
 
 //google maps api
@@ -87,7 +86,7 @@ module.exports = function(request, callback){
 							"coordinates": polylineReturned
 						},
 						"properties": {
-							"fat": 5
+							"fat": .075
 						}
 					},
 				]
@@ -101,7 +100,7 @@ module.exports = function(request, callback){
 				try {
 					boxes = anyBoxer(jsonData, options);
 				} catch(e) {
-					console.log('RouteBoxer failed...');
+					console.log('AnyBoxer failed...');
 					console.log(e);
 					failed = true;
 				}
@@ -109,13 +108,22 @@ module.exports = function(request, callback){
 
 			if(!failed) {
 				//finishes the polygons of the boxes
-				
-				// boxes.forEach(function(element){
-				// 	var currentCoordinates = element[0];
-				// 	currentCoordinates.push(currentCoordinates[0]);
-				// });
 
-				console.log('Would make all polygons complete here');
+				console.log('Fixing all polygons...');
+
+				console.log('Size of boxes: ' + boxes.length);
+				boxes.forEach(function(element){
+					element.forEach(function(element){
+						var temp = element[0];
+						element[0] = element[1];
+						element[1] = temp;
+					});
+					// var currentCoordinates = element[0];
+					// currentCoordinates.push(currentCoordinates[0]);
+				});
+				console.log(boxes);
+
+
 			}
 
 			
@@ -124,7 +132,7 @@ module.exports = function(request, callback){
 		}
 
 		//run the callback
-		callback(boxes, polylineReturned);
+		//callback(boxes, polylineReturned);
 		console.log('Polyline returned...');
 		//console.log(polylineReturned);
 

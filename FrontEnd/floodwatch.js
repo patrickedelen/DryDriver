@@ -15,6 +15,7 @@ app.use('/public', express.static('public'));
 //require app code
 var route = require('./app/route');
 var search = require('./app/search');
+exports.test = 'hello world';
 
 // start up mongodb
 mongoose.connect('mongodb://root:1234Pizza@ds023432.mlab.com:23432/drydriver', function(err) {

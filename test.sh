@@ -1,0 +1,2 @@
+cd FrontEnd/
+npm test
