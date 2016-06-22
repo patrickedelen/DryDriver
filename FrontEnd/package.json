@@ -24,6 +24,6 @@
     "vows": "^0.8.1"
   },
   "scripts": {
-  "test": "vows --spec"
+  "test": "npm test"
   }
 }

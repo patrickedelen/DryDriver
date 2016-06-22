@@ -64,13 +64,13 @@ module.exports = function(request, callback){
 			//variable to store seteps (higher res polylines)
 			var routeSteps = results.routes[0].legs[0].steps;
 			console.log('all results');
-			console.log(results);
+			//console.log(results);
 			console.log('Steps');
 
 
-			for(var i = 0; i < routeSteps.length; i++) {
-				console.log(routeSteps[i].polyline);
-			}
+			// for(var i = 0; i < routeSteps.length; i++) {
+			// 	console.log(routeSteps[i].polyline);
+			// }
 
 			//find the points of the polyline
 			var polylineReturned = decode(results.routes[0].overview_polyline);
@@ -91,7 +91,7 @@ module.exports = function(request, callback){
 					},
 				]
 			};
-			console.log(jsonData);
+			//console.log(jsonData);
 
 			//create boxes
 			var boxes;
@@ -104,7 +104,7 @@ module.exports = function(request, callback){
 					console.log(e);
 					failed = true;
 				}
-				console.log(boxes);
+				//console.log(boxes);
 
 			if(!failed) {
 				//finishes the polygons of the boxes
@@ -112,16 +112,44 @@ module.exports = function(request, callback){
 				console.log('Fixing all polygons...');
 
 				console.log('Size of boxes: ' + boxes.length);
+				//makes all coordinates the correct lng, lat format
 				boxes.forEach(function(element){
 					element.forEach(function(element){
 						var temp = element[0];
 						element[0] = element[1];
 						element[1] = temp;
 					});
-					// var currentCoordinates = element[0];
-					// currentCoordinates.push(currentCoordinates[0]);
 				});
-				console.log(boxes);
+
+				//create list of all individual coords
+				var coords = [];
+				boxes.forEach(function(element, index, array){
+					element.forEach(function(element){
+						coords.push(element);
+					});
+				});
+
+				var complete = [];
+				while(coords.length > 4){
+					var temp =  [];
+					//add all coords to the complete array
+					temp.push(coords[0]);
+					temp.push(coords[1]);
+					temp.push(coords[3]);
+					temp.push(coords[2]);
+					temp.push(coords[0]);
+
+					complete.push(temp);
+
+					//remove the first two elements, shifting the array over
+					coords.shift();
+					coords.shift();
+
+				}
+
+				//console.log(boxes);
+				console.log('complete polygons:');
+				//console.log(complete);
 
 
 			}
@@ -132,7 +160,7 @@ module.exports = function(request, callback){
 		}
 
 		//run the callback
-		//callback(boxes, polylineReturned);
+		callback(complete, polylineReturned);
 		console.log('Polyline returned...');
 		//console.log(polylineReturned);
 

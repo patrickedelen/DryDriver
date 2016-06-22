@@ -3,3 +3,5 @@ node_js:
   - "4"
 before_install:
   - "cd FrontEnd"
+notifications:
+  slack: drydriver:xbFdAXhWUkjDZ10c8XwU7jC1

@@ -7,7 +7,7 @@ var Event = require('./models/event.js');
 
 module.exports = function(computedBoxes, line, callback){
 	console.log('Made it to search file');
-	console.log(computedBoxes);
+	//console.log(computedBoxes);
 
 	var points = [];
 
@@ -25,8 +25,8 @@ module.exports = function(computedBoxes, line, callback){
 		//for each box find pins in it
 		computedBoxes.forEach(function(element, index) {
 			//print box coords
-			//console.log('Box ' + index);
-			//console.log(element.coordinates);
+			// console.log('Box ' + index);
+			// console.log(element);
 
 			// Event.find(function(err, events) {
 
@@ -41,7 +41,8 @@ module.exports = function(computedBoxes, line, callback){
 			Event.find({Coordinates: {
 				$geoWithin: {
 					$geometry: {
-						type: "Polygon", coordinates: element.coordinates 
+						type: "Polygon", 
+						coordinates: [element] 
 					}
 						}
 					}

@@ -232,7 +232,7 @@ var _prum = [['id', '573b5a53abe53d5a3831f22f'],
                   console.log('Adding box');
                   console.log(element);
                   polyBox = [];
-                  element.coordinates[0].forEach(function(elem) {
+                  element.forEach(function(elem) {
                     var z = {
                     'lat': parseFloat(elem[1]),
                     'lng': parseFloat(elem[0])
