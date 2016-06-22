@@ -1,5 +1,5 @@
 language: node_js
 node_js:
   - "4"
-install: ./install.sh
-script: ./test.sh
+install: install.sh
+script: test.sh
