@@ -10,7 +10,7 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //set the static route
-app.use('/public', express.static('public'));
+app.use('/public', express.static(__dirname + '/public'));
 
 //require app code
 var route = require('./app/route');
