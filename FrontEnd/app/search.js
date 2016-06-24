@@ -60,7 +60,6 @@ module.exports = function(computedBoxes, line, callback){
 		}
 
 		//for each box find pins in it
-		Event.ensureIndex({point:"2dsphere"});
 		computedBoxes.forEach(function(element, index) {
 			//print box coords
 			// console.log('Box ' + index);
