@@ -77,101 +77,112 @@ module.exports = function(request, callback){
 			var polylineReturned = decode(results.routes[0].overview_polyline);
 			//console.log(polylineReturned);
 
-			var jsonData = {
-				"type": "FeatureCollection",
-				"features": [
-					{
-						"type": "Feature",
-						"geometry": {
-							"type": "MultiPoint",
-							"coordinates": polylineReturned
-						},
-						"properties": {
-							"fat": .075
-						}
-					},
-				]
-			};
-			//console.log(jsonData);
-
-			//create boxes
-			var boxes;
-			var failed = false;
-				console.log('Calling anyboxer now!');
-				try {
-					boxes = anyBoxer(jsonData, options);
-				} catch(e) {
-					console.log('AnyBoxer failed...');
-					console.log(e);
-					failed = true;
-				}
-				//console.log(boxes);
-
-			if(!failed) {
-				//finishes the polygons of the boxes
-
-				console.log('Fixing all polygons...');
-
-				console.log('Size of boxes: ' + boxes.length);
-				//makes all coordinates the correct lng, lat format
-				boxes.forEach(function(element){
-					element.forEach(function(element){
-						var temp = element[0];
-						element[0] = element[1];
-						element[1] = temp;
-					});
-				});
-
-				//create list of all individual coords
-				var coords = [];
-				boxes.forEach(function(element, index, array){
-					element.forEach(function(element){
-						coords.push(element);
-					});
-				});
-				console.log('Total length of all coords: ' + coords.length);
-
-				var complete = [];
-				while(coords.length >= 4){
-					var temp =  [];
-					//add all coords to the complete array
-					temp.push(coords[0]);
-					temp.push(coords[1]);
-					temp.push(coords[3]);
-					temp.push(coords[2]);
-					temp.push(coords[0]);
-
-					complete.push(temp);
-
-					//remove the first two elements, shifting the array over
-					coords.shift();
-					coords.shift();
-
-				}
-					var delta = Date.now() - createTime;
-					console.log('Making the route took: ' + delta + 'ms');
-
-				// /////////////
-				// //using one polygon
-
-				// //add all even points to the var
-				// for(var i = 0; i < coords.length; i = i + 2) {
-				// 	complete.push(coords[i]);
-				// }
-				// for(var i = coords.length - 1; i > 0; i = i - 2) {
-				// 	complete.push(coords[i]);
-				// }
-				// complete.push(coords[0]);
+			var complete = polylineReturned;
 
 
-				// //console.log(boxes);
-				// console.log('complete polygons:');
-				// console.log(complete);
-				// //end
-				// /////////////
+// ////////////////////////////////////////
+// //HEY HERE'S ALL THE CODE YOU NEED
+// ///////////////////////////////////////
+
+// 			var jsonData = {
+// 				"type": "FeatureCollection",
+// 				"features": [
+// 					{
+// 						"type": "Feature",
+// 						"geometry": {
+// 							"type": "MultiPoint",
+// 							"coordinates": polylineReturned
+// 						},
+// 						"properties": {
+// 							"fat": .075
+// 						}
+// 					},
+// 				]
+// 			};
+// 			//console.log(jsonData);
+
+// 			//create boxes
+// 			var boxes;
+// 			var failed = false;
+// 				console.log('Calling anyboxer now!');
+// 				try {
+// 					boxes = anyBoxer(jsonData, options);
+// 				} catch(e) {
+// 					console.log('AnyBoxer failed...');
+// 					console.log(e);
+// 					failed = true;
+// 				}
+// 				//console.log(boxes);
+
+// 			if(!failed) {
+// 				//finishes the polygons of the boxes
+
+// 				console.log('Fixing all polygons...');
+
+// 				console.log('Size of boxes: ' + boxes.length);
+// 				//makes all coordinates the correct lng, lat format
+// 				boxes.forEach(function(element){
+// 					element.forEach(function(element){
+// 						var temp = element[0];
+// 						element[0] = element[1];
+// 						element[1] = temp;
+// 					});
+// 				});
+
+// 				//create list of all individual coords
+// 				var coords = [];
+// 				boxes.forEach(function(element, index, array){
+// 					element.forEach(function(element){
+// 						coords.push(element);
+// 					});
+// 				});
+// 				console.log('Total length of all coords: ' + coords.length);
+
+// 				var complete = [];
+// 				while(coords.length >= 4){
+// 					var temp =  [];
+// 					//add all coords to the complete array
+// 					temp.push(coords[0]);
+// 					temp.push(coords[1]);
+// 					temp.push(coords[3]);
+// 					temp.push(coords[2]);
+// 					temp.push(coords[0]);
+
+// 					complete.push(temp);
+
+// 					//remove the first two elements, shifting the array over
+// 					coords.shift();
+// 					coords.shift();
+
+// 				}
+// 					var delta = Date.now() - createTime;
+// 					console.log('Making the route took: ' + delta + 'ms');
+
+// 				// /////////////
+// 				// //using one polygon
+
+// 				// //add all even points to the var
+// 				// for(var i = 0; i < coords.length; i = i + 2) {
+// 				// 	complete.push(coords[i]);
+// 				// }
+// 				// for(var i = coords.length - 1; i > 0; i = i - 2) {
+// 				// 	complete.push(coords[i]);
+// 				// }
+// 				// complete.push(coords[0]);
 
 
-			}
+// 				// //console.log(boxes);
+// 				// console.log('complete polygons:');
+// 				// console.log(complete);
+// 				// //end
+// 				// /////////////
+//			}
+
+// //////////////////////////////////////////////////
+// //HEY THAT CODE IS DONE
+// //////////////////////////////////////////////////
+
+
 
 			
 		} else {

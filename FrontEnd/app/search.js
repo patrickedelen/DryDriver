@@ -60,6 +60,7 @@ module.exports = function(computedBoxes, line, callback){
 		}
 
 		//for each box find pins in it
+		Event.ensureIndex({point:"2dsphere"});
 		computedBoxes.forEach(function(element, index) {
 			//print box coords
 			// console.log('Box ' + index);
@@ -75,31 +76,61 @@ module.exports = function(computedBoxes, line, callback){
 
 			// 	}).limit(5);
 
+
+			//search near each point
+			console.log('Current point: ' +element);
 			Event.find({Coordinates: {
-				$geoWithin: {
+				$near: {
 					$geometry: {
-						type: "Polygon", 
-						coordinates: [element] 
-					}
-						}
-					}
-				}, function(err, events) {
+						type: "Point",
+						coordinates: element
+					},
+					$maxDistance: 20
+				}
+			}}, function(err, events) {
+				if(err) {
+					console.log(err);
+				} else {
+					events.forEach(function(elem) {
+						points.push(elem);
+					});
+				}
+				//subtracts the count and calls the callback function
+				count--;
+				callCallback();
+			});
 
-					if(!err){
-						//console.log(events);
-						//add the point to the array
-						events.forEach(function(elem) {
-							points.push(elem);
-						})
+// /////////////////////////////////////////
+// //HEY THAT CODE IS RIGHT HERE
+// /////////////////////////////////////////
+// 			Event.find({Coordinates: {
+// 				$geoWithin: {
+// 					$geometry: {
+// 						type: "Polygon", 
+// 						coordinates: [element] 
+// 					}
+// 						}
+// 					}
+// 				}, function(err, events) {
 
-					} else {
-						console.log(err);
-					}
+// 					if(!err){
+// 						//console.log(events);
+// 						//add the point to the array
+// 						events.forEach(function(elem) {
+// 							points.push(elem);
+// 						})
 
-					//subtracts the count and calls the callback function
-					count--;
-					callCallback();
-				});
+// 					} else {
+// 						console.log(err);
+// 					}
+
+// 					//subtracts the count and calls the callback function
+// 					count--;
+// 					callCallback();
+// 				});
+// ////////////////////////////////////////////
+// //END OF THAT CODE
+// ///////////////////////////////////////////
 
 			return points;
 

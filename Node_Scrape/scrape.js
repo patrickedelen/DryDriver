@@ -37,3 +37,16 @@ client.cluster.health({}, function(err, res, status) {
 	console.log('Elasticsearch status:');
 	console.log(res);
 });
+
+//request the rainfall data
+console.log('Requesting rainfall data');	
+var rainUrl = 'http://www.harriscountyfws.org/Home/GetSiteRecentData';
+request.post({url: rainUrl, form: {regionId: 1, timeSpan: 3, dt: 1466781285071}}, function(err, res, body) {
+	if(!err){
+		//console.log(res);
+		console.log(body);
+	} else {
+		console.log(err);
+	}
+
+});

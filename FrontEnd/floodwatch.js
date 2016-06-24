@@ -25,6 +25,7 @@ var db = mongoose.connect('mongodb://root:1234Pizza@ds023432.mlab.com:23432/dryd
 		console.log("DB connected...");
 	}
 });
+db.events.ensureIndex({point:"2dsphere"});
 
 require('./app/routes.js')(app);
 
