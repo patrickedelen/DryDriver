@@ -22,3 +22,18 @@ request(url, function(err, resp, body){
   //   console.log($(link).text() + ':\n  ' + $(link).attr('href'));
   // });
 });
+
+//load elasticsearch
+var elasticsearch = require('elasticsearch');
+
+var client = new elasticsearch.Client({
+	hosts: [
+		'https://root:1234Pizza@sl-us-dal-9-portal2.dblayer.com:10642',
+		'https://root:1234Pizza@sl-us-dal-9-portal2.dblayer.com:10621'
+	]
+});
+
+client.cluster.health({}, function(err, res, status) {
+	console.log('Elasticsearch status:');
+	console.log(res);
+});

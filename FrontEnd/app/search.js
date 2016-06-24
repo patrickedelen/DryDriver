@@ -11,7 +11,42 @@ module.exports = function(computedBoxes, line, callback){
 
 	var points = [];
 
+	var time = Date.now();
 	if(computedBoxes){
+
+		//search along the boxes
+
+		// /////////////////
+		// //search using one polygon
+		// 	Event.find({Coordinates: {
+		// 		$geoWithin: {
+		// 			$geometry: {
+		// 				type: "Polygon", 
+		// 				coordinates: [computedBoxes] 
+		// 			}
+		// 				}
+		// 			}
+		// 		}, function(err, events) {
+
+		// 			if(!err){
+		// 				//console.log(events);
+		// 				//add the point to the array
+		// 				events.forEach(function(elem) {
+		// 					points.push(elem);
+		// 				})
+
+		// 			} else {
+		// 				console.log(err);
+		// 			}
+
+		// 			//calls the callback function
+		// 			callback(points, line, computedBoxes);
+		// 			var delta = Date.now() - time;
+		// 			console.log('That took: ' + delta);
+		// 		});
+		// //end
+		// /////////////////////
+
 		var count = computedBoxes.length;
 
 		//calls every time the loop runs
@@ -19,6 +54,8 @@ module.exports = function(computedBoxes, line, callback){
 			if(count === 0){
 				//callback function expects arrays of the line and points
 				callback(points, line, computedBoxes);
+				var delta = Date.now() - time;
+					console.log('That took: ' + delta + 'ms');
 			}
 		}
 

@@ -56,6 +56,7 @@ function decode(polylineInput) {
 
 //call route(request) where request is an object with origin and destination
 module.exports = function(request, callback){
+	var createTime = Date.now();
 
 	gmAPI.directions( request, function(err, results) {
 		if(!err) {
@@ -128,6 +129,7 @@ module.exports = function(request, callback){
 						coords.push(element);
 					});
 				});
+				console.log('Total length of all coords: ' + coords.length);
 
 				var complete = [];
 				while(coords.length >= 4){
@@ -146,11 +148,27 @@ module.exports = function(request, callback){
 					coords.shift();
 
 				}
+					var delta = Date.now() - createTime;
+					console.log('Making the route took: ' + delta + 'ms');
+
+				// /////////////
+				// //using one polygon
+
+				// //add all even points to the var
+				// for(var i = 0; i < coords.length; i = i + 2) {
+				// 	complete.push(coords[i]);
+				// }
+				// for(var i = coords.length - 1; i > 0; i = i - 2) {
+				// 	complete.push(coords[i]);
+				// }
+				// complete.push(coords[0]);
 
 
-				//console.log(boxes);
-				console.log('complete polygons:');
-				//console.log(complete);
+				// //console.log(boxes);
+				// console.log('complete polygons:');
+				// console.log(complete);
+				// //end
+				// /////////////
 
 
 			}
