@@ -24,21 +24,135 @@ var cleanString = function(string) {
 
 }
 
+//needs to be the form 4/18/2016 7:00:00 AM
+var fixDate = function(badDate) {
+	var fixedDate = '';
+	var am = true;
+
+	//month
+	if(badDate.charAt(5) != 0) {fixedDate += badDate.charAt(5);}
+	fixedDate += badDate.charAt(6);
+	fixedDate += '/';
+
+	//day
+	if(badDate.charAt(8) != 0) {fixedDate += badDate.charAt(8);}
+	fixedDate += badDate.charAt(9);
+	fixedDate += '/';
+
+	//year
+	fixedDate += badDate.substring(0, 4);
+	fixedDate += ' ';
+
+	//hour
+	if(parseInt(badDate.substring(11, 13)) > 12) {
+		am = false;
+		fixedDate += (parseInt(badDate.substring(11, 13)) - 12);
+	} else if(parseInt(badDate.substring(11, 13)) === 12) {
+		am = false;
+		fixedDate += badDate.substring(11, 13);
+	} else {
+		fixedDate += badDate.substring(11, 13);
+	}
+	fixedDate += ':';
+
+	//minute
+	fixedDate += badDate.substring(14, 16);
+	fixedDate += ':';
+
+	//second
+	fixedDate += badDate.substring(17, 19);
+	fixedDate += ' ';
+
+	//AM or PM
+	if(am) {
+		fixedDate += 'AM';
+	} else {
+		fixedDate += 'PM';
+	}
+
+	//console.log(badDate);
+	//console.log(fixedDate);
+
+	return fixedDate;
+
+}
+
+//cleans all the strings in a line variable
+//takes unsplit line as the variable
+var cleanStrings = function(lineUnSplit) {
+
+	var line = lineUnSplit.split('|');
+
+	var cleaned = [];
+
+	//latitude
+	cleaned[0] = cleanString(line[1]);
+	//longitude
+	cleaned[1] = cleanString(line[2]);
+	//address
+	cleaned[2] = cleanString(line[3]);
+	//date
+	cleaned[3] = fixDate(line[4]);
+
+	return cleaned;
+
+}
+
+var generateHistory = function(record){
+	console.log('Requesting historical rainfall data');	
+	var rainUrl = 'http://www.harriscountyfws.org/Home/GetSiteHistoricRainfall';
+	request.post({url: rainUrl, form: {regionId: 1, endDate: record[3], interval: 1440, unit: 'mi'}}, function(err, res, body) {
+		if(!err){
+			//console.log(res);
+			safejson.parse(body, function(err, rainfall) {
+				if(!err) {
+					//console.log(rainfall);
+					//log each site location and rainfall
+					console.log('Generating rainfall history for location: ' + record[2] + ' at lat: ' + record[0] + ', lon: ' + record[1]);
+					console.log('\nPrinting historical rainfall data...');
+					for(var i = 0; i < rainfall.Sites.length; i++) {
+						console.log('Rainfall at ' + rainfall.Sites[i].Longitude + ', ' + rainfall.Sites[i].Latitude + ' was ' + rainfall.Sites[i].Rainfall);
+					}
+
+				} else {
+					console.log(err);
+				}
+			})
+		} else {
+			console.log(err);
+		}
+
+	});
+}
 
 var findAddress = function(body) {
 	var lines = body.split('\n');
 
 	console.log('Line 1: ' + lines[2]);
 
+	var line = lines[2];
+
 	var address = lines[2].split('|')[3];
 
 
-	console.log('Line 1 Address: ' + cleanString(address) + '_');
+	console.log('Line 1 Address: ' + cleanString(address) + '');
+}
+
+var getFirstHistory = function(body){
+	var lines = body.split('\n');
+	var firstRecord = cleanStrings(lines[2]);
+	console.log(firstRecord);
+	generateHistory(firstRecord);
+
 }
 
 request(url, function(err, resp, body){
 	console.log('requesting...');
-	findAddress(body);
+
+	getFirstHistory(body);
+
+
+	//findAddress(body);
   // $ = cheerio.load(body);
   // links = $('.sb_tlst h3 a'); //selecting the address
   // $(links).each(function(i, link){
