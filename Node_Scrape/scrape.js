@@ -5,8 +5,20 @@ var safejson = require('safejson');
 //load elasticsearch for different db
 var elasticsearch = require('elasticsearch');
 
+//MySQL setup
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'HOST',
+  user     : 'root',
+  password : 'PW',
+  port     : '3306',
+  database : 'historical'
+});
 
-var url = 'http://houstontx.gov/heatmaps/datafiles/floodingheatmap72all.txt';
+connection.connect(function(err){});
+
+
+var url = 'http://houstontx.gov/heatmaps/datafiles/floodingheatmap30d.txt';
 
 //remove extra spaces from any strings and return the result
 var cleanString = function(string) {
@@ -21,7 +33,6 @@ var cleanString = function(string) {
 	}
 	var content = string.length - spaces;
 	return string.slice(0, content);
-
 }
 
 //needs to be the form 4/18/2016 7:00:00 AM
@@ -99,6 +110,8 @@ var cleanStrings = function(lineUnSplit) {
 }
 
 var generateHistory = function(record){
+
+	var table = 'INSERT INTO month VALUES (' + record[0] + ',\n' + record[1];
 	console.log('Requesting historical rainfall data');	
 	var rainUrl = 'http://www.harriscountyfws.org/Home/GetSiteHistoricRainfall';
 	request.post({url: rainUrl, form: {regionId: 1, endDate: record[3], interval: 1440, unit: 'mi'}}, function(err, res, body) {
@@ -108,21 +121,104 @@ var generateHistory = function(record){
 				if(!err) {
 					//console.log(rainfall);
 					//log each site location and rainfall
-					console.log('Generating rainfall history for location: ' + record[2] + ' at lat: ' + record[0] + ', lon: ' + record[1]);
-					console.log('\nPrinting historical rainfall data...');
-					for(var i = 0; i < rainfall.Sites.length; i++) {
+					console.log('\nGenerating rainfall history for location: ' + record[2] + ' at lat: ' + record[0] + ', lon: ' + record[1]);
+					console.log('Printing historical rainfall data...');
+					for(var i = 0; i < 1; i++) {
+						//console.log('Rainfall at ' + rainfall.Sites[i].Longitude + ', ' + rainfall.Sites[i].Latitude + ' was ' + rainfall.Sites[i].Rainfall);
+					}
+
+				} else {
+					console.log(err);
+				}
+
+				for(var i = 0; i < rainfall.Sites.length; i++) {
+					var col = '';
+					var current = rainfall.Sites[i];
+
+					col = ',\n' + current.Latitude + ',\n' + current.Longitude + ',\n' + current.RainfallText;
+
+					table += col;
+				}
+
+				table += ');';
+
+				//console.log(table);
+
+				
+				connection.query(table, function(err, rows) {
+					if(!err){
+						console.log(rows);
+					} else {
+						console.log(err);
+					}
+					
+				});
+				
+				
+
+			});
+		} else {
+			console.log(err);
+		}
+
+	});
+
+}
+
+var generateTables = function(record){
+
+	var table = 'CREATE TABLE month (IncidentLat double,IncidentLon double';
+	console.log('Requesting historical rainfall data');	
+	var rainUrl = 'http://www.harriscountyfws.org/Home/GetSiteHistoricRainfall';
+	request.post({url: rainUrl, form: {regionId: 1, endDate: record[3], interval: 1440, unit: 'mi'}}, function(err, res, body) {
+		if(!err){
+			//console.log(res);
+			safejson.parse(body, function(err, rainfall) {
+				if(!err) {
+					//console.log(rainfall);
+					//log each site location and rainfall
+					console.log('\nGenerating rainfall history for location: ' + record[2] + ' at lat: ' + record[0] + ', lon: ' + record[1]);
+					console.log('Printing historical rainfall data...');
+					for(var i = 0; i < 1; i++) {
 						console.log('Rainfall at ' + rainfall.Sites[i].Longitude + ', ' + rainfall.Sites[i].Latitude + ' was ' + rainfall.Sites[i].Rainfall);
 					}
 
 				} else {
 					console.log(err);
 				}
-			})
+
+				for(var i = 0; i < rainfall.Sites.length; i++) {
+					var col = '';
+					var current = rainfall.Sites[i];
+
+					var id = current.SiteId;
+
+					col = ',Site' + id + 'Lat double,Site' + id + 'Lon double,Site' + id + 'Rain double';
+
+					table += col;
+				}
+
+				table += ');';
+
+				
+				connection.query(table, function(err, rows) {
+					if(!err){
+						console.log(rows.length);
+					} else {
+						console.log(err);
+					}
+					connection.end();
+				});
+				
+				
+
+			});
 		} else {
 			console.log(err);
 		}
 
 	});
+
 }
 
 var findAddress = function(body) {
@@ -138,18 +234,27 @@ var findAddress = function(body) {
 	console.log('Line 1 Address: ' + cleanString(address) + '');
 }
 
-var getFirstHistory = function(body){
+var getCountHistory = function(body, count){
 	var lines = body.split('\n');
-	var firstRecord = cleanStrings(lines[2]);
-	console.log(firstRecord);
-	generateHistory(firstRecord);
+
+	for(var i = 2; i < (2 + count); i++) {
+		setTimeout(function(i){
+			var record = cleanStrings(lines[i]);
+			console.log('Running record number: ' + i + ', values: ' + record);
+			generateHistory(record);
+		}, (500 * i), i);
+
+	}
 
 }
 
 request(url, function(err, resp, body){
 	console.log('requesting...');
+	var count = body.split('\n').length;
+	console.log(count);
 
-	getFirstHistory(body);
+	//get the history for the set number of records
+	getCountHistory(body, count);
 
 
 	//findAddress(body);
@@ -175,6 +280,11 @@ var connectElastic = function() {
 	});
 }
 
+
+
+////////////////////////////////////////////
+//Functions made for getting current and past rainfall data
+////////////////////////////////////////////
 var getRainfallData = function() {
 	//request the rainfall data
 	console.log('Requesting present rainfall data');	

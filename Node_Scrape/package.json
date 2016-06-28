@@ -5,6 +5,7 @@
   "dependencies": {
     "cheerio": "^0.20.0",
     "elasticsearch": "^11.0.1",
+    "mysql": "^2.11.1",
     "request": "^2.72.0",
     "safejson": "^1.0.1"
   }
