@@ -8,9 +8,9 @@ var elasticsearch = require('elasticsearch');
 //MySQL setup
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host     : 'HOST',
+  host     : '*',
   user     : 'root',
-  password : 'PW',
+  password : '*',
   port     : '3306',
   database : 'historical'
 });
@@ -218,6 +218,67 @@ var generateTables = function(record){
 		}
 
 	});
+
+}
+
+
+//get the per gage flooding history
+var generateIndividualHistory = function(record) {
+	var table = 'INSERT INTO individual VALUES (' + record[0] + ',\n' + record[1];
+	console.log('Requesting historical rainfall data');	
+	var rainUrl = 'http://www.harriscountyfws.org/Home/GetSiteHistoricRainfall';
+	request.post({url: rainUrl, form: {regionId: 1, endDate: record[3], interval: 1440, unit: 'mi'}}, function(err, res, body) {
+		if(!err){
+			//console.log(res);
+			safejson.parse(body, function(err, rainfall) {
+				if(!err) {
+					//console.log(rainfall);
+					//log each site location and rainfall
+					console.log('\nGenerating rainfall history for location: ' + record[2] + ' at lat: ' + record[0] + ', lon: ' + record[1]);
+					console.log('Printing historical rainfall data...');
+					for(var i = 0; i < 1; i++) {
+						//console.log('Rainfall at ' + rainfall.Sites[i].Longitude + ', ' + rainfall.Sites[i].Latitude + ' was ' + rainfall.Sites[i].Rainfall);
+					}
+
+				} else {
+					console.log(err);
+				}
+
+				for(var i = 0; i < rainfall.Sites.length; i++) {
+					var col = '';
+					var current = rainfall.Sites[i];
+
+					col = ',\n' + current.Latitude + ',\n' + current.Longitude + ',\n' + current.RainfallText;
+
+					table += col;
+				}
+
+				table += ');';
+
+				//console.log(table);
+
+				
+				connection.query(table, function(err, rows) {
+					if(!err){
+						console.log(rows);
+					} else {
+						console.log(err);
+					}
+					
+				});
+				
+				
+
+			});
+		} else {
+			console.log(err);
+		}
+
+	});
+
+}
+
+var getPoliceReports = function() {
 
 }
 
