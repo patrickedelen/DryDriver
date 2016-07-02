@@ -1,5 +1,6 @@
 var request = require('request');
 var cheerio = require('cheerio');
+var async = require('async');
 //safejson for async parsing
 var safejson = require('safejson');
 //MySQL setup
@@ -193,20 +194,28 @@ var generateIndividualHistory = function(record) {
 
 
 
-var getCountHistory = function(){
+async.waterfall([
+	function(callback) {
+		var incidents = reports.getMonthReports(function(incidents) {
+			console.log(incidents);
+			callback(null, incidents);
+		});
+	},
+	function(incidents, callback) {
+		for(var i = 0; i < Object.keys(incidents).length; i++) {
+			setTimeout(function(i){
+				console.log('Running record number: ' + i + ', values: ' + incidents[i]);
+				//generateHistory(record);
+			}, (100 * i), i);
+		}
 
-	var incidents = reports.getMonthReports();
-	console.log(incidents);
-
-	for(var i = 2; i < incidents.length; i++) {
-		setTimeout(function(i){
-			console.log('Running record number: ' + i + ', values: ' + incidents[i]);
-			//generateHistory(record);
-		}, (100 * i), i);
-
+		callback(null, 'done');		
 	}
-
-}
-
-getCountHistory();
+], function(err, result) {
+	if(err) {
+		console.log(err);
+	} else {
+		console.log(result)
+	}
+});
 

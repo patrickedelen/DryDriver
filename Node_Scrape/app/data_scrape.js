@@ -1,5 +1,6 @@
 //make requests to get the data
 var request = require('request');
+var async = require('async');
 
 //remove extra spaces from any strings and return the result
 var cleanString = function(string) {
@@ -111,23 +112,28 @@ var cleanStrings = function(lineUnSplit) {
 
 	}
 
-	module.exports.getMonthReports = function() {
+	module.exports.getMonthReports = function(callback) {
 		var url = 'http://houstontx.gov/heatmaps/datafiles/floodingheatmap72outside.txt';
 		
-		var reportsObj = request(url, function(err, resp, body) {
+		request(url, function(err, resp, body) {
 			console.log('Requesting reports from the last 30 days...');
 			var reports = body.split('\n');
-			var reportsList = {};
+			var reportsObj = {};
 
 			for(var i = 2; i < reports.length - 3; i ++) {
 				//clean the strings and add them to the object
-				reportsList += cleanStrings(reports[i]);
+				var reportObj = cleanStrings(reports[i]);
+				reportsObj[i - 2] = {
+					latitude: reportObj.latitude,
+					longitude: reportObj.longitude,
+					address: reportObj.address,
+					date: reportObj.date
+				};
+					
 			}
-			
-			return reportsList;
+			return callback(reportsObj);
 		});
 
-		return reportsObj;
 	}
 
 	module.exports.getPastReports = function() {
