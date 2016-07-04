@@ -202,14 +202,20 @@ async.waterfall([
 		});
 	},
 	function(incidents, callback) {
-		for(var i = 0; i < Object.keys(incidents).length; i++) {
-			setTimeout(function(i){
-				console.log('Running record number: ' + i + ', values: ' + incidents[i]);
+		async.eachSeries(incidents, function(incident, done) {
+			setTimeout(function(){
+				console.log('Running record address: ' + incident.address + ', date: ' + incident.date);
 				//generateHistory(record);
-			}, (100 * i), i);
-		}
+				done();
+			}, (200));
+		}, function(err) {
+			if(err) {
+				console.log(err);
+			} else {
+				callback(null, 'Done!');
+			}
+		});
 
-		callback(null, 'done');		
 	}
 ], function(err, result) {
 	if(err) {
@@ -217,5 +223,6 @@ async.waterfall([
 	} else {
 		console.log(result)
 	}
+	connection.end();
 });
 
