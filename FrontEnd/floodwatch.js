@@ -17,7 +17,7 @@ var route = require('./app/route');
 var search = require('./app/search');
 
 // start up mongodb
-var db = mongoose.connect('mongodb://root:1234Pizza@ds023432.mlab.com:23432/drydriver', function(err) {
+var db = mongoose.connect(process.env.DD_MONGO, function(err) {
 //log database status
 	if(err) {
 		console.log(err);
@@ -30,7 +30,8 @@ require('./app/routes.js')(app);
 
 console.log('running!');
 
-var port = (process.env.PORT || 8008);
+var port = process.env.DD_PORT;
+
 http.listen(port, function() {
 	console.log('Server active on port ' + port);
 });

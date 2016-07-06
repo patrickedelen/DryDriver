@@ -13,9 +13,9 @@ var rainfall = require('./app/rainfall.js');
 var db = require('./app/db.js');
 
 var connection = mysql.createConnection({
-  host     : '*',
+  host     : process.env.DD_DB_HOST,
   user     : 'root',
-  password : '*',
+  password : process.env.DD_DB_PW,
   port     : '3306',
   database : 'historical'
 });
