@@ -1,6 +1,6 @@
 {
   "name": "drydriver",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Save money; save lives",
   "dependencies": {
     "anyboxer": "^0.4.9",

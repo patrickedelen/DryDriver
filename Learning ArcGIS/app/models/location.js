@@ -1,1 +1,0 @@
-//locations will have lon/lat coords, addresses, and maybe weight?
