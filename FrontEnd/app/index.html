@@ -220,7 +220,7 @@ var _prum = [['id', '573b5a53abe53d5a3831f22f'],
                 response.pins.forEach(function(element) {
                   //console.log('lat: ' + parseFloat(element.Coordinates[1]) + ' , lng: ' + parseFloat(element.Coordinates[0]))
                   markers.push(new google.maps.Marker({
-                    position: {lat: parseFloat(element.Coordinates[1]), lng: parseFloat(element.Coordinates[0])},
+                    position: {lat: parseFloat(element.Loc.coordinates[1]), lng: parseFloat(element.Loc.coordinates[0])},
                     animation: google.maps.Animation.DROP,
                     title: element.Address,
                     icon: warningI,

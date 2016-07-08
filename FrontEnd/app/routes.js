@@ -42,7 +42,7 @@ module.exports = function(app) {
 					}
 					var sendData = {
 						'line': line,
-						'boxes': boxes,
+						'boxes': [],//changed here boxes
 						'pins': pins
 					};
 

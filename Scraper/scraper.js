@@ -6,6 +6,7 @@ var safejson = require('safejson');
 var mysql = require('mysql');
 //MongoDB
 var mongoose = require('mongoose');
+mongoose.set('debug', true);
 
 
 //internal requires
@@ -69,7 +70,7 @@ var terminate = function(){
 ///////////////////////////////
 
 var checkLocation = function() {
-	var coords = [-95.14189026, 29.54026217];
+	var coords = [-95.24340314, 30.02712895];
 	console.log('checking near coords');
 
 	incidents.checkNear(coords, function() {
@@ -132,5 +133,6 @@ var saveYearIncidents = function() {
 	});
 }
 
-saveMonthIncidents();
-
+//saveMonthIncidents();
+//checkLocation();
+saveYearIncidents();

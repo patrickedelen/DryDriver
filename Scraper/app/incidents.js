@@ -83,9 +83,9 @@ var cleanStrings = function(lineUnSplit) {
 	var cleaned = {};
 
 	//latitude
-	cleaned.latitude = cleanString(line[1]);
+	cleaned.latitude = parseFloat(cleanString(line[1]));
 	//longitude
-	cleaned.longitude = cleanString(line[2]);
+	cleaned.longitude = parseFloat(cleanString(line[2]));
 	//address
 	cleaned.address = cleanString(line[3]);
 	//date
@@ -112,9 +112,12 @@ var cleanStrings = function(lineUnSplit) {
 				reportsObj.push({
 					Id         : reportObj.id,
 					Date       : reportObj.date,
-					Coordinates: [reportObj.longitude, reportObj.latitude],
-					Type       : '311',
-					address    : reportObj.address
+					Loc: {
+						type: 'Point',
+						coordinates: [reportObj.longitude, reportObj.latitude],
+					},
+					ReportType : '311',
+					Address    : reportObj.address
 				});
 					
 			}
@@ -137,9 +140,12 @@ var cleanStrings = function(lineUnSplit) {
 				reportsObj.push({
 					Id         : reportObj.id,
 					Date       : reportObj.date,
-					Coordinates: [reportObj.longitude, reportObj.latitude],
-					Type       : '311',
-					address    : reportObj.address
+					Loc: {
+						type: 'Point',
+						coordinates: [reportObj.longitude, reportObj.latitude],
+					},
+					ReportType       : '311',
+					Address    : reportObj.address
 				});
 					
 			}
@@ -162,9 +168,12 @@ var cleanStrings = function(lineUnSplit) {
 				reportsObj.push({
 					Id         : reportObj.id,
 					Date       : reportObj.date,
-					Coordinates: [reportObj.longitude, reportObj.latitude],
-					Type       : '311',
-					address    : reportObj.address
+					Loc: {
+						type: 'Point',
+						coordinates: [reportObj.longitude, reportObj.latitude],
+					},
+					ReportType       : '311',
+					Address    : reportObj.address
 				});
 					
 			}
@@ -181,10 +190,10 @@ var cleanStrings = function(lineUnSplit) {
 			if(err) {
 				console.log(err);
 			} else {
-				console.log('Inserted ' + docs.length + ' documents! ');
+				console.log('Inserted ' + docs + ' documents! ');
 			}
 
-			modelIncident.ensureIndexes(function(err) {
+			modelIncident.ensureIndexes({point:"2dsphere"}, function(err) {
 				if(err) {
 					console.log(err);
 				} else {
@@ -199,22 +208,40 @@ var cleanStrings = function(lineUnSplit) {
 
 	//checking $near
 	module.exports.checkNear = function(coords, callback) {
-		modelIncident.find({Coordinates: {
-				$near: {
-					$geometry: {
-						type: "Point",
-						coordinates: coords
-					},
-					$maxDistance: 2000
-				}
-			}}, function(err, incidentsList) {
-				if(err) {
-					console.log(err);
-				} else {
-					console.log(incidentsList);
-				}
+
+		setTimeout(function() {
+		modelIncident.where('Loc').near({
+			center: {
+				type: 'Point',
+				coordinates: coords
+			},
+			maxDistance: 100
+		}).exec(function(err, list) {
+			if(err) {
+				console.log('err: ' + err);
+			} else {
+				console.log('Data: ' + list);
+			}
+			callback();
+		});
+	}, 1000)
+		
+		// modelIncident.find({Coordinates: {
+		// 		$near: {
+		// 			$geometry: {
+		// 				type: "Point",
+		// 				Coordinates: coords
+		// 			},
+		// 			$maxDistance: 20000
+		// 		}
+		// 	}}, function(err, incidentsList) {
+		// 		if(err) {
+		// 			console.log(err);
+		// 		} else {
+		// 			console.log(incidentsList);
+		// 		}
 				
-				callback();
-			});
+		// 		callback();
+		// 	});
 	}
 

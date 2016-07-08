@@ -4,6 +4,7 @@
 
 //require the model
 var Event = require('./models/event.js');
+var Incident = require('./models/incident.js');
 
 module.exports = function(computedBoxes, line, callback){
 	console.log('Made it to search file');
@@ -77,19 +78,17 @@ module.exports = function(computedBoxes, line, callback){
 
 			//search near each point
 			console.log('Current point: ' +element);
-			Event.find({Coordinates: {
-				$near: {
-					$geometry: {
-						type: "Point",
-						coordinates: element
-					},
-					$maxDistance: 20
-				}
-			}}, function(err, events) {
+			Incident.where('Loc').near({
+				center: {
+					type: 'Point',
+					coordinates: element
+				},
+				maxDistance: 1000
+			}).exec(function(err, incidents) {
 				if(err) {
 					console.log(err);
 				} else {
-					events.forEach(function(elem) {
+					incidents.forEach(function(elem) {
 						points.push(elem);
 					});
 				}
