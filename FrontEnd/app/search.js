@@ -10,8 +10,7 @@ module.exports = function(computedBoxes, line, callback){
 	//console.log(computedBoxes);
 
 	var points = [];
-
-	var time = Date.now();
+	var time   = Date.now();
 	if(computedBoxes){
 
 		//search along the boxes

@@ -8,8 +8,8 @@ var polyline = require('polyline');
 var Promise = require('bluebird');
 
 //routeboxer to generate boxes around the route returned
-var RouteBoxer = require('geojson.lib.routeboxer'),
-    boxer = new RouteBoxer();
+var RouteBoxer = require('geojson.lib.routeboxer')
+var boxer      = new RouteBoxer();
 
 //testing anyboxer
 var anyBoxer = require('anyboxer');
