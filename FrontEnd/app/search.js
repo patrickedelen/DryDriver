@@ -55,7 +55,7 @@ module.exports = function(computedBoxes, line, callback){
 				//callback function expects arrays of the line and points
 				callback(points, line, computedBoxes);
 				var delta = Date.now() - time;
-					console.log('That took: ' + delta + 'ms');
+					console.log('Total time: ' + delta + 'ms');
 			}
 		}
 
@@ -77,13 +77,13 @@ module.exports = function(computedBoxes, line, callback){
 
 
 			//search near each point
-			console.log('Current point: ' +element);
+			//console.log('Checking location: ' + element);
 			Incident.where('Loc').near({
 				center: {
 					type: 'Point',
 					coordinates: element
 				},
-				maxDistance: 1000
+				maxDistance: 200
 			}).exec(function(err, incidents) {
 				if(err) {
 					console.log(err);

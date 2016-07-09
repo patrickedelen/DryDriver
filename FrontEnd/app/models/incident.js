@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 
 var incidentSchema = new mongoose.Schema({
-	Id         : {type: String, unique: true},
 	Date       : Date,
 	Loc: {
 		type: {type: String},
@@ -13,6 +12,6 @@ var incidentSchema = new mongoose.Schema({
 
 incidentSchema.index({ Loc: '2dsphere' });
 
-
+//removed 	Id         : {type: String, unique: true},
 
 module.exports = mongoose.model('Incident', incidentSchema);

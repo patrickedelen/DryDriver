@@ -186,11 +186,11 @@ var cleanStrings = function(lineUnSplit) {
 	//insert incidents in the database
 	module.exports.insertIncidents = function(incidents, callback) {
 		
-		modelIncident.collection.insert(incidents, function(err, docs) {
+		modelIncident.collection.insert(incidents, {w: 0}, function(err, docs) {
 			if(err) {
 				console.log(err);
 			} else {
-				console.log('Inserted ' + docs + ' documents! ');
+				console.log('Inserted documents');
 			}
 
 			modelIncident.ensureIndexes({point:"2dsphere"}, function(err) {
@@ -199,9 +199,10 @@ var cleanStrings = function(lineUnSplit) {
 				} else {
 					console.log('Created indexes');
 				}
+
+				callback();
 			});
 
-			callback();
 		});
 
 	}
@@ -224,7 +225,7 @@ var cleanStrings = function(lineUnSplit) {
 			}
 			callback();
 		});
-	}, 1000)
+	}, 200)
 		
 		// modelIncident.find({Coordinates: {
 		// 		$near: {
@@ -244,4 +245,4 @@ var cleanStrings = function(lineUnSplit) {
 		// 		callback();
 		// 	});
 	}
-
+	
