@@ -6,7 +6,7 @@ var safejson = require('safejson');
 var mysql = require('mysql');
 //MongoDB
 var mongoose = require('mongoose');
-
+//mongoose.set('debug', true);
 
 //internal requires
 var incidents = require('./app/incidents.js');
@@ -133,5 +133,5 @@ var saveYearIncidents = function() {
 }
 
 //saveMonthIncidents();
-checkLocation();
-//saveYearIncidents();
+//checkLocation();
+saveYearIncidents();

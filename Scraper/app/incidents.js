@@ -1,6 +1,8 @@
 //make requests to get the data
 var request = require('request');
 var async = require('async');
+//mongoose for IDs
+var mongoose = require('mongoose');
 
 //mongoose model
 var modelIncident = require('./models/incident.js');
@@ -110,7 +112,7 @@ var cleanStrings = function(lineUnSplit) {
 				//clean the strings and add them to the object
 				var reportObj = cleanStrings(reports[i]);
 				reportsObj.push({
-					Id         : reportObj.id,
+					_id         : reportObj.id,
 					Date       : reportObj.date,
 					Loc: {
 						type: 'Point',
@@ -138,7 +140,7 @@ var cleanStrings = function(lineUnSplit) {
 				//clean the strings and add them to the object
 				var reportObj = cleanStrings(reports[i]);
 				reportsObj.push({
-					Id         : reportObj.id,
+					_id         : reportObj.id,
 					Date       : reportObj.date,
 					Loc: {
 						type: 'Point',
@@ -166,7 +168,7 @@ var cleanStrings = function(lineUnSplit) {
 				//clean the strings and add them to the object
 				var reportObj = cleanStrings(reports[i]);
 				reportsObj.push({
-					Id         : reportObj.id,
+					_id         : new mongoose.Types.ObjectId,
 					Date       : reportObj.date,
 					Loc: {
 						type: 'Point',
@@ -186,7 +188,7 @@ var cleanStrings = function(lineUnSplit) {
 	//insert incidents in the database
 	module.exports.insertIncidents = function(incidents, callback) {
 		
-		modelIncident.collection.insert(incidents, {w: 0}, function(err, docs) {
+		modelIncident.collection.insert(incidents, /*{w: 0},*/ function(err, docs) {
 			if(err) {
 				console.log(err);
 			} else {
@@ -216,7 +218,7 @@ var cleanStrings = function(lineUnSplit) {
 				type: 'Point',
 				coordinates: coords
 			},
-			maxDistance: 100
+			maxDistance: 2000
 		}).exec(function(err, list) {
 			if(err) {
 				console.log('err: ' + err);
@@ -245,4 +247,3 @@ var cleanStrings = function(lineUnSplit) {
 		// 		callback();
 		// 	});
 	}
-	
