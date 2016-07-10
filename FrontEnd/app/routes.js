@@ -32,7 +32,7 @@ module.exports = function(app) {
 			origin: req.body.origin,
 			destination: req.body.destination
 		};
-		console.log('Origin: ' + params.origin + ' , Destination: ' + params.destination);
+		console.log('Origin: ' + params.origin + ', Destination: ' + params.destination);
 		route(params, function(boxes, response){
 				console.log('Callback called...');
 				search(boxes, response, function(pins, line, boxes){

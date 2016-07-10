@@ -50,9 +50,10 @@ function decode(polylineInput) {
 		return normalized.push(value);
 	});
 
-	console.log(normalized);
+	//console.log(normalized);
 	return normalized;
 }
+
 
 //call route(request) where request is an object with origin and destination
 module.exports = function(request, callback){
@@ -64,9 +65,9 @@ module.exports = function(request, callback){
 
 			//variable to store seteps (higher res polylines)
 			var routeSteps = results.routes[0].legs[0].steps;
-			console.log('all results');
+			//console.log('all results');
 			//console.log(results);
-			console.log('Steps');
+			//console.log('Steps');
 
 
 			// for(var i = 0; i < routeSteps.length; i++) {
