@@ -19,57 +19,8 @@ var _prum = [['id', '573b5a53abe53d5a3831f22f'],
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5zmAUe8unQ1Gp9WK-rpJVKcQWHaYf_8g">
   </script>
 
-<script>
-  var loc = document.getElementById("c_location");
-  var map;
-
-  function getLocation() {
-      if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(showPosition, showError);
-      } else { 
-          loc.value = "Geolocation is not supported by this browser.";
-      }
-  }
-
-  function showPosition(position) {
-      //alert(position.coords.latitude);
-      // loc.value = "works";
-      document.getElementById("c_location").setAttribute('value', position.coords.latitude + 
-      "," + position.coords.longitude);  
-  }
-
-  function showError(error) {
-      switch(error.code) {
-          case error.PERMISSION_DENIED:
-              loc.value = "User denied the request for Geolocation."
-              break;
-          case error.POSITION_UNAVAILABLE:
-              loc.value = "Location information is unavailable."
-              break;
-          case error.TIMEOUT:
-              loc.value = "The request to get user location timed out."
-              break;
-          case error.UNKNOWN_ERROR:
-              loc.value = "An unknown error occurred."
-              break;
-      }
-  }
-  function initialize() {
-    var mapProp = {
-      center:new google.maps.LatLng(29.7604,-95.3698),
-      zoom:12,
-      mapTypeControl: false,
-      scaleControl: true,
-      streetViewControl: false,
-      zoomControl: true,
-      zoomControlOptions: {
-        position: google.maps.ControlPosition.LEFT_CENTER
-      },
-      mapTypeId:google.maps.MapTypeId.ROADMAP
-    };
-    map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
-  }
-  google.maps.event.addDomListener(window, 'load', initialize);
+  <script
+    src="public/js/drydriver.js">
   </script>
 
 
@@ -135,134 +86,13 @@ var _prum = [['id', '573b5a53abe53d5a3831f22f'],
     </div>
   </div>
 
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <!--  Scripts-->
+  <script src="public/js/jquery.js"></script>
   <script src="public/js/materialize.js"></script>
   <script src="public/js/init.js"></script>
-  <script>
-  var overlayElem = [];
-  var markers = [];
-  var routeBoxes = [];
+  <script src="public/js/routing.js"></script>
 
-  var startI = 'http://drydriver.pedelen.com/public/img/start.png';
-  var endI = 'http://drydriver.pedelen.com/public/img/end.png';
-  var warningI = 'http://drydriver.pedelen.com/public/img/warning.png';
-
-    $('#route').click(function(event) {
-    
-      event.preventDefault();
-
-      if(overlayElem.routePath) {
-        overlayElem.routePath.setMap(null);
-      }
-      if(overlayElem.startMarker) {
-        overlayElem.startMarker.setMap(null);
-      }
-      if(overlayElem.endMarker) {
-        overlayElem.endMarker.setMap(null);
-      }
-
-      while(markers[0]) {
-        markers.pop().setMap(null);
-      }
-      while(routeBoxes[0]) {
-        routeBoxes.pop().setMap(null);
-      }
-
-      console.log('click');
-      var origin = document.getElementById('c_location').value;
-      var destination = document.getElementById('destination').value;
-
-      var form = $( '#form-ajax');
-
-      var formData = $(form).serialize();
-
-       $.ajax({
-                  type: 'POST',
-                  url: '/route', //localhost:8008/route for testing, drydriver.pedelen.com/route for prod
-                  data: formData
-              })
-              .done(function(response) {
-                map.overlayMapTypes.setAt( 0, null);
-                console.log(response);
-
-                var reLine = [];
-
-                response.line.forEach(function(element) {
-                  var i = {
-                    'lat': element[1],
-                    'lng': element[0]
-                  };
-                  reLine.push(i);
-                });
-
-                //polyline for the route
-                overlayElem.routePath = new google.maps.Polyline({
-                  path: reLine,
-                  geodesic: true,
-                  strokeColor: '#2456A5',
-                  strokeOpacity: 1.0,
-                  strokeWeight: 4
-                });
-
-                overlayElem.startMarker = new google.maps.Marker({
-                  position: reLine[0],
-                  icon: startI,
-                  map: map
-                });
-                overlayElem.endMarker = new google.maps.Marker({
-                  position: reLine[reLine.length - 1],
-                  icon: endI,
-                  map: map
-                });
-
-                response.pins.forEach(function(element) {
-                  //console.log('lat: ' + parseFloat(element.Coordinates[1]) + ' , lng: ' + parseFloat(element.Coordinates[0]))
-                  markers.push(new google.maps.Marker({
-                    position: {lat: parseFloat(element.Loc.coordinates[1]), lng: parseFloat(element.Loc.coordinates[0])},
-                    animation: google.maps.Animation.DROP,
-                    title: element.Address,
-                    icon: warningI,
-                    map: map
-                  }));
-                });
-
-                response.boxes.forEach(function(element, index) {
-                  console.log('Adding box');
-                  console.log(element);
-                  polyBox = [];
-                  element.forEach(function(elem) {
-                    var z = {
-                    'lat': parseFloat(elem[1]),
-                    'lng': parseFloat(elem[0])
-                    };
-                    polyBox.push(z);
-                  });
-                  console.log(polyBox);
-
-                  routeBoxes.push(new google.maps.Polygon({
-                      paths: polyBox,
-                      strokeColor: '#000000',
-                      strokeOpacity: 0.8,
-                      strokeWeight: 2,
-                      fillColor: '#000000',
-                      fillOpacity: 0.35
-                    }));
-                    routeBoxes[index].setMap(map);
-                });
-
-
-                if(response.boxes.length === 0) {
-                  alert('Search along route failed...Maybe try a different route?');
-                  console.log('Search along route failed...Maybe try a different route?');
-                }
-
-                overlayElem.routePath.setMap(map);
-
-              });
-    });
-  </script>
+  
 
   </body>
 </html>

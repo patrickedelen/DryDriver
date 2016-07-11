@@ -112,7 +112,7 @@ var cleanStrings = function(lineUnSplit) {
 				//clean the strings and add them to the object
 				var reportObj = cleanStrings(reports[i]);
 				reportsObj.push({
-					_id         : reportObj.id,
+					_id        : new mongoose.Types.ObjectId,
 					Date       : reportObj.date,
 					Loc: {
 						type: 'Point',
@@ -140,7 +140,7 @@ var cleanStrings = function(lineUnSplit) {
 				//clean the strings and add them to the object
 				var reportObj = cleanStrings(reports[i]);
 				reportsObj.push({
-					_id         : reportObj.id,
+					_id        : new mongoose.Types.ObjectId,
 					Date       : reportObj.date,
 					Loc: {
 						type: 'Point',
@@ -207,6 +207,31 @@ var cleanStrings = function(lineUnSplit) {
 
 		});
 
+	}
+
+	//insert one document
+	module.exports.insertCurrentIncidents = function(currentIncidents, callback) {
+		async.each(currentIncidents, function(element) {
+			modelIncident.where('Date', element.Date, function(incidentsReturned) {
+				if(!incidentsReturned) {
+					try {
+						db.products.insertOne( element );
+					} catch (e) {
+						print (e);
+					};
+				} else {
+					console.log('Incident already inserted');
+					console.log(incidentsReturned);
+				}
+			});
+
+		}, function(err) {
+			console.log('Inserted all current incidents');
+			if(err) {
+				console.log(err);
+			}
+			callback();
+		})
 	}
 
 	//checking $near

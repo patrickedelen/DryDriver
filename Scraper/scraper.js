@@ -1,15 +1,16 @@
-var request = require('request');
-var async = require('async');
+var request    = require('request');
+var async      = require('async');
 //safejson for async parsing
-var safejson = require('safejson');
+var safejson   = require('safejson');
 //MySQL
-var mysql = require('mysql');
+var mysql      = require('mysql');
 //MongoDB
-var mongoose = require('mongoose');
+var mongoose   = require('mongoose');
 //mongoose.set('debug', true);
 
 //internal requires
-var incidents = require('./app/incidents.js');
+var incidents  = require('./app/incidents.js');
+var rainGauges = require('./app/raingauges.js');
 
 ///////////////////////////////
 //BEGIN APPLICATION SETUP
@@ -45,7 +46,7 @@ connection.connect(function(err){
 
 
 //terminates the database connections
-var terminate = function(){
+function terminate(){
 	console.log('Terminating database connections');
 	connection.end();
 	db.disconnect();
@@ -68,7 +69,7 @@ var terminate = function(){
 //START APPLICATION LOGIC
 ///////////////////////////////
 
-var checkLocation = function() {
+function checkLocation() {
 	var coords = [-95.342853, 29.766441];
 	console.log('checking near coords');
 
@@ -80,7 +81,33 @@ var checkLocation = function() {
 
 
 
-var saveMonthIncidents = function() {
+function saveCurrentIncidents() {
+	var startTime = Date.now();
+	async.waterfall([
+		function(callback) {
+			incidents.getCurrent311(function(returnedIncidents) {
+				//incidents scraped callback
+				callback(null, returnedIncidents);
+			});
+		},
+		function(returnedIncidents, callback) {
+			incidents.insertCurrentIncidents(returnedIncidents, function() {
+				//incidents inserted callback
+				callback(null, 'Done with current incident save');
+			})
+		}
+	], function(err, result) {
+		if(err) {
+			console.log(err);
+		} else {
+			console.log(result);
+			console.log('Total time was ' + (Date.now() - startTime) + ' ms.');
+		}
+		checkLocation();
+	});
+}
+
+function saveMonthIncidents() {
 	var startTime = Date.now();
 	async.waterfall([
 		function(callback) {
@@ -106,7 +133,7 @@ var saveMonthIncidents = function() {
 	});
 }
 
-var saveYearIncidents = function() {
+function saveYearIncidents() {
 	var startTime = Date.now();
 	async.waterfall([
 		function(callback) {
@@ -132,6 +159,35 @@ var saveYearIncidents = function() {
 	});
 }
 
+ 
+
+//generate table schema
+function generateTables(callback) {
+	var createQuery = 'CREATE TABLE monthRain (GaugeNumber Integer,FloodProbability Integer,Rainfall Double);';
+
+	connection.query(createQuery, function(err, rows) {
+		if(!err){
+			console.log(rows.length);
+		} else {
+			console.log(err);
+		}
+
+		callback();
+	});
+
+}
+
+//loop through month dates and insert into database
+
+
+
+//saveYearIncidents();
 //saveMonthIncidents();
+//saveCurrentIncidents();
+
 //checkLocation();
-saveYearIncidents();
+
+
+generateTables(function() {
+	terminate();
+});
