@@ -3,6 +3,8 @@ var request = require('request');
 var async = require('async');
 //mongoose for IDs
 var mongoose = require('mongoose');
+//safejson for async parsing
+var safejson   = require('safejson');
 
 //mongoose model
 var modelIncident = require('./models/incident.js');
@@ -116,7 +118,7 @@ var cleanStrings = function(lineUnSplit) {
 					Date       : reportObj.date,
 					Loc: {
 						type: 'Point',
-						coordinates: [reportObj.longitude, reportObj.latitude],
+						coordinates: [reportObj.longitude, reportObj.latitude]
 					},
 					ReportType : '311',
 					Address    : reportObj.address
@@ -126,6 +128,41 @@ var cleanStrings = function(lineUnSplit) {
 			callback(reportsObj);
 		});
 
+	}
+
+	module.exports.getCurrentPolice = function(callback) {
+		var url = 'http://dmwilson.info/api/ActiveIncident?incidentTypes=1';
+
+		request(url, function(err, resp, body) {
+			var reportsObj = [];
+
+			if(!err) {
+
+				safejson.parse(body, function(err, json) {
+					if(!err) {
+						for(var i = 0; i < json.length; i++) {
+							reportsObj.push({
+								_id: new mongoose.Types.ObjectId,
+								Date: json[i].CallTimeOpened,
+								Loc: {
+									type: 'Point',
+									coordinates: [json[i].Longitude, json[i].Latitude]
+								},
+								reportType: '911',
+								Address: json[i].Address
+							});
+						}
+					} else {
+						console.log(err);
+					}
+
+					callback(reportsObj);
+				});
+				
+			} else {
+				console.log(err);
+			}
+		});
 	}
 
 	module.exports.getMonth311 = function(callback) {
@@ -252,23 +289,6 @@ var cleanStrings = function(lineUnSplit) {
 			}
 			callback();
 		});
-	}, 200)
+	}, 200);
 		
-		// modelIncident.find({Coordinates: {
-		// 		$near: {
-		// 			$geometry: {
-		// 				type: "Point",
-		// 				Coordinates: coords
-		// 			},
-		// 			$maxDistance: 20000
-		// 		}
-		// 	}}, function(err, incidentsList) {
-		// 		if(err) {
-		// 			console.log(err);
-		// 		} else {
-		// 			console.log(incidentsList);
-		// 		}
-				
-		// 		callback();
-		// 	});
 	}

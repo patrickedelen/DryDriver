@@ -177,6 +177,26 @@ function generateTables(callback) {
 
 }
 
+function getCurrentPolice(cb) {
+var startTime = Date.now();
+	async.waterfall([
+		function(callback) {
+			incidents.getCurrentPolice(function(returnedIncidents) {
+				//incidents scraped callback
+				callback(null, returnedIncidents);
+			});
+		}
+	], function(err, result) {
+		if(err) {
+			console.log(err);
+		} else {
+			console.log(result);
+			console.log('Total time was ' + (Date.now() - startTime) + ' ms.');
+		}
+		cb();
+	});
+}
+
 //loop through month dates and insert into database
 
 
@@ -188,6 +208,15 @@ function generateTables(callback) {
 //checkLocation();
 
 
-generateTables(function() {
+// generateTables(function() {
+// 	terminate();
+// });
+
+// getCurrentPolice(function() {
+// 	terminate();
+// });
+
+incidents.getCurrentPolice(function(reports) {
+	console.log(reports);
 	terminate();
-});
+})
