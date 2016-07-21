@@ -216,7 +216,7 @@ var startTime = Date.now();
 // 	terminate();
 // });
 
-incidents.getCurrentPolice(function(reports) {
+incidents.getAllPolice(function(reports) {
 	console.log(reports);
 	terminate();
-})
+});

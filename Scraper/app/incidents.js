@@ -102,6 +102,7 @@ var cleanStrings = function(lineUnSplit) {
 }
 
 
+
 	module.exports.getCurrent311 = function(callback) {
 		var url = 'http://houstontx.gov/heatmaps/datafiles/floodingheatmap24all.txt';
 		
@@ -163,6 +164,44 @@ var cleanStrings = function(lineUnSplit) {
 				console.log(err);
 			}
 		});
+	}
+
+	module.exports.getAllPolice = function(cb) {
+		console.log('Getting all police flooding reports...');
+		var datesChecked = [];
+		var datesNumber = 30;
+
+		//var to store police reports
+		var reportsObj = [];
+
+		//add dates to the array for each date to be checked
+		for(var i = 0; i < datesNumber; i ++) {
+			var d = new Date();
+			d.setDate(d.getDate() - i);
+			//string to hold formatted date
+			var s = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+
+			datesChecked.push(s);
+		}
+
+
+		cb(datesChecked);
+
+		//check each date
+		/*async.eachSeries(datesChecked, function(dateToCheck, done) {
+			setTimeout(function(){
+				
+				
+				done();
+			}, 200);
+		}, function(err) {
+			if(err) {
+				console.log(err);
+			} else {
+				callback(null, 'Done!');
+			}
+		});*/
+
 	}
 
 	module.exports.getMonth311 = function(callback) {
