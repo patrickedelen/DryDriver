@@ -169,7 +169,7 @@ var cleanStrings = function(lineUnSplit) {
 	module.exports.getAllPolice = function(cb) {
 		console.log('Getting all police flooding reports...');
 		var datesChecked = [];
-		var datesNumber = 30;
+		var datesNumber = 100;
 
 		//var to store police reports
 		var reportsObj = [];
@@ -179,28 +179,70 @@ var cleanStrings = function(lineUnSplit) {
 			var d = new Date();
 			d.setDate(d.getDate() - i);
 			//string to hold formatted date
-			var s = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+			var s = '&to=' + d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
 
-			datesChecked.push(s);
+			//second date to check
+			d = new Date();
+			d.setDate(d.getDate() - (i + 1));
+			//string to hold formatted date
+			var s2 = '?from=' + d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+
+			//concat the strings
+			s2 += s;
+
+			datesChecked.push(s2);
 		}
 
-
-		cb(datesChecked);
-
 		//check each date
-		/*async.eachSeries(datesChecked, function(dateToCheck, done) {
+		async.eachSeries(datesChecked, function(dateToCheck, done) {
+			//generate the url of the request
+			var url = 'http://dmwilson.info/api/ArchivedIncident' + dateToCheck + '&incidentTypes=27,32&skip=0&count=100';
+
 			setTimeout(function(){
+
+				request(url, function(err, resp, body) {
+					console.log('request complete for ' + url);
+
+					if(!err) {
+						safejson.parse(body, function(err, json) {
+							if(!err) {
+								for(var i = 0; i < json.length; i++) {
+									reportsObj.push({
+										_id: new mongoose.Types.ObjectId,
+										Date: json[i].CallTimeOpened,
+										Loc: {
+											type: 'Point',
+											coordinates: [json[i].Longitude, json[i].Latitude]
+										},
+										reportType: '911',
+										Address: json[i].Address
+									});
+								}
+							} else {
+								console.log(err);
+							}
+
+						});
+
+						done();
+						
+					} else {
+						console.log(err);
+
+						done();
+					}
+
+				});
 				
-				
-				done();
 			}, 200);
+
 		}, function(err) {
 			if(err) {
 				console.log(err);
 			} else {
-				callback(null, 'Done!');
+				cb(reportsObj);
 			}
-		});*/
+		});
 
 	}
 

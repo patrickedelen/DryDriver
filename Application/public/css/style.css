@@ -1,0 +1,38 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+/*Start new styles*/
+body {
+	
+}
+#infoModal {
+	display: relative;
+	z-index: 1000;
+	width: 90%;
+	max-width: 800px;
+	padding: 10px 20px 30px 20px;
+	margin: 5% auto;
+	box-shadow: 0px 10px 20px rgba(0,0,0,.4);
+
+	background: #c2c2c2;
+	border-radius: 15px;
+}
+	.info-text {
+		font-size: 1.3em;
+		margin-top: 15px;
+	}
+	.info-img {
+		height: 66px;
+	}

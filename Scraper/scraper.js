@@ -146,7 +146,7 @@ function saveYearIncidents() {
 			incidents.insertIncidents(returnedIncidents, function() {
 				//incidents inserted callback
 				callback(null, 'Done with year incident save');
-			})
+			});
 		}
 	], function(err, result) {
 		if(err) {
@@ -197,6 +197,33 @@ var startTime = Date.now();
 	});
 }
 
+function saveAllPolice() {
+	var startTime = Date.now();
+	async.waterfall([
+		function(callback) {
+			incidents.getAllPolice(function(returnedIncidents) {
+				//incidents scraped callback
+				console.log('Total number of police incidents was ' + returnedIncidents.length);
+				callback(null, returnedIncidents);
+			});
+		},
+		function(returnedIncidents, callback) {
+			incidents.insertIncidents(returnedIncidents, function() {
+				//incidents inserted callback
+				callback(null, 'Done with police incident save');
+			});
+		}
+	], function(err, result) {
+		if(err) {
+			console.log(err);
+		} else {
+			console.log(result);
+			console.log('Total time was ' + (Date.now() - startTime) + ' ms.');
+		}
+		terminate();
+	});
+}
+
 //loop through month dates and insert into database
 
 
@@ -216,7 +243,9 @@ var startTime = Date.now();
 // 	terminate();
 // });
 
-incidents.getAllPolice(function(reports) {
-	console.log(reports);
-	terminate();
-});
+// incidents.getAllPolice(function(reports) {
+// 	console.log(reports);
+// 	terminate();
+// });
+
+saveAllPolice();

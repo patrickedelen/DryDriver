@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5zmAUe8unQ1Gp9WK-rpJVKcQWHaYf_8g">
+  </script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+	<link rel="shortcut icon" href="public/img/logo.png" />
+	<title>Dry Driver 1.0</title>
+
+  	<link href="public/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  	<link href="public/css/bootstrap.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+	<div id="infoModal" class="text-center">
+		<h3>Thank you for using DryDriver!</h3>
+		<br>
+		<h4>Enter your start and end points to the boxes, or leave your start point blank to use your current location. When you click go, your route will be shown with any relevent incidents.</h4>
+		<br>
+		<p class="info-text">Historical incidents are gathered from past data and are shown in yellow</p>
+		<img src="public/img/warning_historical.png" alt="" class="info-img">
+		<p class="info-text">Police incidents are taken from past police reports and are orange</p>
+		<img src="public/img/warning_police.png" alt="" class="info-img">
+		<p class="info-text">User reported flooding is shown in red</p>
+		<img src="public/img/warning_user.png" alt="" class="info-img">
+		<br>
+		<h3>To get started, click continue!</h3>
+		<br>
+		<button id="continue" class="btn btn-info">Continue</button>
+
+	</div>
+	<div id="googleMap"></div>
+
+
+</body>
+<script src="public/js/jquery.js"></script>
+</html>
