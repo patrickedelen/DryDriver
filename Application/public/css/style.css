@@ -15,10 +15,24 @@
 
 /*Start new styles*/
 body {
+  background: #176eb9;
 	
 }
+
+/*Transition CSS*/
+.blurred {
+	-webkit-filter: blur(6px);
+	        filter: blur(6px);
+}
+.hidden {
+	opacity: 0;
+	display: none;
+}
+
+/*Content CSS*/
+
 #infoModal {
-	display: relative;
+	transition: opacity .5s;
 	z-index: 1000;
 	width: 90%;
 	max-width: 800px;
@@ -26,8 +40,9 @@ body {
 	margin: 5% auto;
 	box-shadow: 0px 10px 20px rgba(0,0,0,.4);
 
-	background: #c2c2c2;
+	background: rgba(183, 183, 183, 0.38);
 	border-radius: 15px;
+	position: relative;
 }
 	.info-text {
 		font-size: 1.3em;
@@ -36,3 +51,15 @@ body {
 	.info-img {
 		height: 66px;
 	}
+
+#googleMap {
+	transition: -webkit-filter .5s;
+	transition: filter .5s;
+	transition: filter .5s, -webkit-filter .5s;
+
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}

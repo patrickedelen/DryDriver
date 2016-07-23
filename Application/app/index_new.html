@@ -10,11 +10,12 @@
 	<link rel="shortcut icon" href="public/img/logo.png" />
 	<title>Dry Driver 1.0</title>
 
-  	<link href="public/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   	<link href="public/css/bootstrap.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  	<link href="public/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
 </head>
 <body>
-	<div id="infoModal" class="text-center">
+	<div id="infoModal" class="text-center hidden">
 		<h3>Thank you for using DryDriver!</h3>
 		<br>
 		<h4>Enter your start and end points to the boxes, or leave your start point blank to use your current location. When you click go, your route will be shown with any relevent incidents.</h4>
@@ -31,7 +32,9 @@
 		<button id="continue" class="btn btn-info">Continue</button>
 
 	</div>
-	<div id="googleMap"></div>
+	<div id="googleMap" class="container-fluid">
+		<div id="mapTop" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">Hi there</div>
+	</div>
 
 
 </body>
