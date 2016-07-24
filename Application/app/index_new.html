@@ -33,7 +33,20 @@
 
 	</div>
 	<div id="googleMap" class="container-fluid">
-		<div id="mapTop" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">Hi there</div>
+		<div id="mapTop" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+			<div class="jumbotron" style="">
+  <form enctype="application/x-www-form-urlencoded" id="form-ajax">
+    <ul class="collapsible">
+    <li>
+      <div class="collapsible-body"><input id="destination" type="text" name="destination" placeholder="Enter Destination"></div>
+      <div class="collapsible-body"><input onclick="getLocation();" id="c_location" type="text" name="origin" placeholder="Current Location"></div>
+      <div class="collapsible-body"><button id="route" class="btn-floating btn-medium waves-effect waves-light blue" style="float:right;"><i class="material-icons">Go!</i></button></div>
+    </li>
+   </ul>
+   </form>
+  </div>
+
+		</div>
 	</div>
 
 
