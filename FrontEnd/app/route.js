@@ -5,8 +5,6 @@
 //require polyline to decode polyline
 var polyline = require('polyline');
 
-var Promise = require('bluebird');
-
 //routeboxer to generate boxes around the route returned
 var RouteBoxer = require('geojson.lib.routeboxer')
 var boxer      = new RouteBoxer();
