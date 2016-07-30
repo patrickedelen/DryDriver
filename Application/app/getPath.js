@@ -6,16 +6,6 @@
 //require polyline to decode polyline
 var polyline = require('polyline');
 
-//routeboxer to generate boxes around the route returned
-var RouteBoxer = require('geojson.lib.routeboxer')
-var boxer      = new RouteBoxer();
-
-//testing anyboxer
-var anyBoxer = require('anyboxer');
-var options = {
-    reverse: false
-};
-
 //google maps api
 var GoogleMapsAPI = require('googlemaps');
 var mapsConfig = {
