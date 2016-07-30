@@ -1,6 +1,6 @@
 //uses GMAPS API to get the route and returns an array of points to search
 ///////////////////////////
-//route.js - find map route and make boxes
+//getPath.js - find map route and make boxes
 //////////////////////////
 
 //require polyline to decode polyline
