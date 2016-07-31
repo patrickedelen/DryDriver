@@ -23,10 +23,14 @@ module.exports = function(app) {
         console.log('Currently routing:');
 		console.log('Origin: ' + params.origin + ', Destination: ' + params.destination);
 
-		getPath(params, function(response){
-				console.log('Sending response...');
-
-				res.json(response);
+		getPath(params, function(err, response){
+				if(err) {
+					console.log(err);
+					res.json({'error' : err});
+				} else {
+					console.log('Sending response...');
+					res.json(response);
+				}
 				
 			});
 		
