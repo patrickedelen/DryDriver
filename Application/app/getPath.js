@@ -39,8 +39,6 @@ function decode(polylineInput) {
 			element[1] 
 		];
 
-		
-
 		return normalized.push(value);
 	});
 
