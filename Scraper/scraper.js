@@ -143,7 +143,7 @@ function saveYearIncidents() {
 			});
 		},
 		function(returnedIncidents, callback) {
-			incidents.insertIncidents(returnedIncidents, function() {
+			incidents.insertIncidentsSafe(returnedIncidents, function() {
 				//incidents inserted callback
 				callback(null, 'Done with year incident save');
 			});
@@ -208,7 +208,7 @@ function saveAllPolice() {
 			});
 		},
 		function(returnedIncidents, callback) {
-			incidents.insertIncidents(returnedIncidents, function() {
+			incidents.insertIncidentsSafe(returnedIncidents, function() {
 				//incidents inserted callback
 				callback(null, 'Done with police incident save');
 			});
@@ -228,7 +228,7 @@ function saveAllPolice() {
 
 
 
-//saveYearIncidents();
+saveYearIncidents();
 //saveMonthIncidents();
 //saveCurrentIncidents();
 
@@ -248,4 +248,4 @@ function saveAllPolice() {
 // 	terminate();
 // });
 
-saveAllPolice();
+//saveAllPolice();

@@ -169,7 +169,7 @@ var cleanStrings = function(lineUnSplit) {
 	module.exports.getAllPolice = function(cb) {
 		console.log('Getting all police flooding reports...');
 		var datesChecked = [];
-		var datesNumber = 100;
+		var datesNumber = 10;
 
 		//var to store police reports
 		var reportsObj = [];
@@ -278,7 +278,7 @@ var cleanStrings = function(lineUnSplit) {
 		var url = 'http://houstontx.gov/heatmaps/datafiles/floodingheatmap12m.txt';
 		
 		request(url, function(err, resp, body) {
-			console.log('Requesting reports from the last 30 days...');
+			console.log('Requesting reports from the last year...');
 			var reports = body.split('\n');
 			var reportsObj = [];
 
@@ -350,6 +350,56 @@ var cleanStrings = function(lineUnSplit) {
 			}
 			callback();
 		})
+	}
+
+	//insert all incidents but check for duplicates
+	module.exports.insertIncidentsSafe = function(incidents, cb) {
+		console.log('Started DB safe insert');
+
+		var nonDups = [];
+		async.each(incidents, function(element, callback) {
+			modelIncident.where('Date', element.Date).exec(function(err, incidentsReturned) {
+
+				if(incidentsReturned.length === 0) {
+					nonDups.push(element);
+					callback();
+				} else {
+					//console.log('Incident already inserted, skipping');
+					//console.log(incidentsReturned);
+					callback();
+				}
+			});
+
+		}, function(err) {
+
+			console.log('Finished searching for non-duplictes, ' + nonDups.length + ' found');
+
+			if(err) {
+				console.log(err);
+			} else if(nonDups.length > 0) {
+				//insert all the non duplicates
+				modelIncident.collection.insert(nonDups, /*{w: 0},*/ function(err, docs) {
+					if(err) {
+						console.log(err);
+					} else {
+						console.log('Inserted non duplicates');
+					}
+
+					modelIncident.ensureIndexes({point:"2dsphere"}, function(err) {
+						if(err) {
+							console.log(err);
+						} else {
+							console.log('Created indexes');
+						}
+
+						cb();
+					});
+
+				});
+			} else {
+				cb();
+			}
+		});
 	}
 
 	//checking $near
