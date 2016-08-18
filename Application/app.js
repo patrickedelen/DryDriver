@@ -31,6 +31,8 @@ http.listen(port, function() {
 	console.log('Server active on port ' + port);
 });
 
+//start socket.io server
+var userAlerts = require('./app/userAlerts.js')(io);
 
 //allow the web server and database to be stopped
 function close(){	

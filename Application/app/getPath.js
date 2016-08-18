@@ -50,7 +50,7 @@ function decode(polylineInput) {
 //call route(request) where request is an object with origin and destination
 //end call with cb(all data to be sent to the user)
 module.exports = function(request, cb){
-	var createTime = Date.now();
+	var startTime = Date.now();
 	
 	async.waterfall([
 		function(callback) {

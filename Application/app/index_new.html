@@ -5,9 +5,8 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5zmAUe8unQ1Gp9WK-rpJVKcQWHaYf_8g">
   </script>
 
-  <script
-    src="public/js/drydriver.js">
-  </script>
+  <script src="public/js/drydriver.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
@@ -54,9 +53,9 @@
 
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="origin">Origin</label>  
+					<label class="col-md-4 control-label" for="c_location">Origin</label>  
 					<div class="col-md-4">
-					<input id="origin" name="origin" type="text" placeholder="Enter origin address here" class="form-control input-md">
+					<input id="c_location" name="origin" type="text" placeholder="Enter origin address here" class="form-control input-md">
 					<span class="help-block">Or leave blank to use current location</span>  
 					</div>
 				</div>
@@ -73,7 +72,7 @@
 				<!-- Button -->
 				<div class="form-group">
 					<div class="col-md-4 col-md-offset-4 text-center">
-						<button id="submit" name="submit" class="btn btn-success">Go!</button>
+						<button id="route" name="submit" class="btn btn-success">Go!</button>
 					</div>
 				</div>
 
@@ -91,4 +90,6 @@
 
 </body>
 <script src="public/js/jquery.js"></script>
+<script src="public/js/routing.js"></script>
+<script src="public/js/alerts.js"></script>
 </html>
