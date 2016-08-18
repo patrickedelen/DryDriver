@@ -6,6 +6,95 @@
   var endI = 'public/img/end.png';
   var warningI = 'public/img/warning.png';
 
+  var warningH = 'public/img/warning_historical.png';
+  var warningP = 'public/img/warning_police.png';
+  var warningU = 'public/img/warning_user.png';
+
+  function getLocation(cb) {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(cb, showError);
+      } else { 
+          loc.value = "Geolocation is not supported by this browser.";
+      }
+  }
+
+  function showError(error) {
+      switch(error.code) {
+          case error.PERMISSION_DENIED:
+              loc.value = "User denied the request for Geolocation."
+              break;
+          case error.POSITION_UNAVAILABLE:
+              loc.value = "Location information is unavailable."
+              break;
+          case error.TIMEOUT:
+              loc.value = "The request to get user location timed out."
+              break;
+          case error.UNKNOWN_ERROR:
+              loc.value = "An unknown error occurred."
+              break;
+      }
+  }
+
+    $('#all').click(function(event) {
+
+      $.ajax({
+                  type: 'GET',
+                  url: 'http://localhost:8008/route/all' //get all events
+              })
+              .done(function(response) {
+                var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(29.7604,-95.3698));
+                map.fitBounds(bounds);
+
+                var listener = google.maps.event.addListener(map, "idle", function() { 
+                  if (map.getZoom() > 11) map.setZoom(11); 
+                  google.maps.event.removeListener(listener); 
+                });
+
+                map.overlayMapTypes.setAt(0, null);
+                console.log(response);
+
+                var historicalReports = response[historical];
+                var policeReports = response[police];
+                var userReports = response[user];
+
+
+                historicalReports.forEach(function(element) {
+                  //console.log('lat: ' + parseFloat(element.Coordinates[1]) + ' , lng: ' + parseFloat(element.Coordinates[0]))
+                  markers.push(new google.maps.Marker({
+                     position: {lat: parseFloat(element.Loc.coordinates[1]), lng: parseFloat(element.Loc.coordinates[0])},
+                    animation: google.maps.Animation.DROP,
+                    title: element.Address,
+                    icon: warningH,
+                    map: map
+                  }));
+                });
+
+                policeReports.forEach(function(element) {
+                  //console.log('lat: ' + parseFloat(element.Coordinates[1]) + ' , lng: ' + parseFloat(element.Coordinates[0]))
+                  markers.push(new google.maps.Marker({
+                     position: {lat: parseFloat(element.Loc.coordinates[1]), lng: parseFloat(element.Loc.coordinates[0])},
+                    animation: google.maps.Animation.DROP,
+                    title: element.Address,
+                    icon: warningP,
+                    map: map
+                  }));
+                });
+
+                userReports.forEach(function(element) {
+                  //console.log('lat: ' + parseFloat(element.Coordinates[1]) + ' , lng: ' + parseFloat(element.Coordinates[0]))
+                  markers.push(new google.maps.Marker({
+                     position: {lat: parseFloat(element.Loc.coordinates[1]), lng: parseFloat(element.Loc.coordinates[0])},
+                    animation: google.maps.Animation.DROP,
+                    title: element.Address,
+                    icon: warningU,
+                    map: map
+                  }));
+                });
+
+            });
+
+    });
+
     $('#route').click(function(event) {
     
       event.preventDefault();
@@ -74,46 +163,44 @@
                   map: map
                 });
 
-                response.pins.forEach(function(element) {
+                var historicalReports = response.pins.historical;
+                var policeReports = response.pins.police;
+                var userReports = response.pins.user;
+
+
+                historicalReports.forEach(function(element) {
                   //console.log('lat: ' + parseFloat(element.Coordinates[1]) + ' , lng: ' + parseFloat(element.Coordinates[0]))
                   markers.push(new google.maps.Marker({
                      position: {lat: parseFloat(element.Loc.coordinates[1]), lng: parseFloat(element.Loc.coordinates[0])},
                     animation: google.maps.Animation.DROP,
                     title: element.Address,
-                    icon: warningI,
+                    icon: warningH,
                     map: map
                   }));
                 });
 
-                // response.boxes.forEach(function(element, index) {
-                //   console.log('Adding box');
-                //   console.log(element);
-                //   polyBox = [];
-                //   element.forEach(function(elem) {
-                //     var z = {
-                //     'lat': parseFloat(elem[1]),
-                //     'lng': parseFloat(elem[0])
-                //     };
-                //     polyBox.push(z);
-                //   });
-                //   console.log(polyBox);
+                policeReports.forEach(function(element) {
+                  //console.log('lat: ' + parseFloat(element.Coordinates[1]) + ' , lng: ' + parseFloat(element.Coordinates[0]))
+                  markers.push(new google.maps.Marker({
+                     position: {lat: parseFloat(element.Loc.coordinates[1]), lng: parseFloat(element.Loc.coordinates[0])},
+                    animation: google.maps.Animation.DROP,
+                    title: element.Address,
+                    icon: warningP,
+                    map: map
+                  }));
+                });
 
-                //   routeBoxes.push(new google.maps.Polygon({
-                //       paths: polyBox,
-                //       strokeColor: '#000000',
-                //       strokeOpacity: 0.8,
-                //       strokeWeight: 2,
-                //       fillColor: '#000000',
-                //       fillOpacity: 0.35
-                //     }));
-                //     routeBoxes[index].setMap(map);
-                // });
+                userReports.forEach(function(element) {
+                  //console.log('lat: ' + parseFloat(element.Coordinates[1]) + ' , lng: ' + parseFloat(element.Coordinates[0]))
+                  markers.push(new google.maps.Marker({
+                     position: {lat: parseFloat(element.Loc.coordinates[1]), lng: parseFloat(element.Loc.coordinates[0])},
+                    animation: google.maps.Animation.DROP,
+                    title: element.Address,
+                    icon: warningU,
+                    map: map
+                  }));
+                });
 
-
-                // if(response.boxes.length === 0) {
-                //   alert('Search along route failed...Maybe try a different route?');
-                //   console.log('Search along route failed...Maybe try a different route?');
-                // }
 
                 overlayElem.routePath.setMap(map);
 

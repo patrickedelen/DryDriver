@@ -1,6 +1,7 @@
 //all HTTP routes for the app
 
 var getPath = require('./getPath.js');
+var searchIncidents = require('./searchIncidents.js');
 
 module.exports = function(app) {
 
@@ -34,6 +35,16 @@ module.exports = function(app) {
 				
 			});
 		
+	});
+
+	app.get('/route/all', function(req, res) {
+		searchIncidents.getAll(function(err, incidents) {
+			if(err) {
+				res.json({'error': err});
+			} else {
+				res.json(incidents);
+			}
+		});
 	});
 
 }

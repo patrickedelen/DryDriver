@@ -214,7 +214,7 @@ var cleanStrings = function(lineUnSplit) {
 											type: 'Point',
 											coordinates: [json[i].Longitude, json[i].Latitude]
 										},
-										reportType: '911',
+										ReportType: '911',
 										Address: json[i].Address
 									});
 								}

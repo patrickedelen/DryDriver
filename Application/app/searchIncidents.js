@@ -8,7 +8,11 @@ var async    = require('async');
 module.exports.searchAlongRoute = function(polyline, callback) {
     console.log('Searching along the route...');
 
-    var points = [];
+    var points = {
+        'historical' : [],
+        'police' : [],
+        'user' : []
+    };
 
     async.each(polyline, function(element, callback) {
         Incident.where('Loc').near({
@@ -22,7 +26,13 @@ module.exports.searchAlongRoute = function(polyline, callback) {
                 callback(err);
             } else {
                 incidents.forEach(function(elem) {
-                    points.push(elem);
+                    if(elem.ReportType == '311') {
+                        points.historical.push(elem);
+                    } else if(elem.ReportType == '911') {
+                        points.police.push(elem);
+                    } else {
+                        points.user.push(elem);
+                    }
                 });
                 callback();
             }
@@ -36,4 +46,44 @@ module.exports.searchAlongRoute = function(polyline, callback) {
         }
     });
 
+}
+
+module.exports.getAll = function(cb)  {
+
+    async.series({
+        police: function(callback) {
+            Incident.find({"ReportType": "911"}).exec(function(err, incidents) {
+                if(err) {
+                    callback(err);
+                } else {
+                    callback(null, incidents);
+                }
+            });
+        },
+        historical: function(callback) {
+            Incident.find({"ReportType": "311"}).exec(function(err, incidents) {
+                if(err) {
+                    callback(err);
+                } else {
+                    callback(null, incidents);
+                }
+            });
+        },
+        user: function(callback) {
+            Incident.find({"ReportType": "user"}).exec(function(err, incidents) {
+                if(err) {
+                    callback(err);
+                } else {
+                    callback(null, incidents);
+                }
+            });
+        }
+
+    }, function(err, results) {
+        if(err) {
+            cb(err);
+        } else {
+            cb(null, results);
+        }
+    });
 }
