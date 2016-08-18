@@ -19,7 +19,7 @@
 
 </head>
 <body>
-	<div id="infoModal" class="text-center hidden">
+	<div id="infoModal" class="text-center">
 		<h3>Thank you for using DryDriver!</h3>
 		<br>
 		<h4>Enter your start and end points to the boxes, or leave your start point blank to use your current location. When you click go, your route will be shown with any relevent incidents.</h4>
@@ -36,21 +36,56 @@
 		<button id="continue" class="btn btn-info">Continue</button>
 
 	</div>
-	<div id="googleMap" class="container-fluid">
+	<div id="googleMap_container" class="container-fluid blurred">
+
 		<div id="mapTop" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-			<div class="jumbotron" style="">
-  <form enctype="application/x-www-form-urlencoded" id="form-ajax">
-    <ul class="collapsible">
-    <li>
-      <div class="collapsible-body"><input id="destination" type="text" name="destination" placeholder="Enter Destination"></div>
-      <div class="collapsible-body"><input onclick="getLocation();" id="c_location" type="text" name="origin" placeholder="Current Location"></div>
-      <div class="collapsible-body"><button id="route" class="btn-floating btn-medium waves-effect waves-light blue" style="float:right;"><i class="material-icons">Go!</i></button></div>
-    </li>
-   </ul>
-   </form>
-  </div>
+			<!--<form enctype="application/x-www-form-urlencoded" id="form-ajax">
+				<ul class="collapsible">
+				<li>
+					<div class="collapsible-body"><input id="destination" type="text" name="destination" placeholder="Enter Destination"></div>
+					<div class="collapsible-body"><input onclick="getLocation();" id="c_location" type="text" name="origin" placeholder="Current Location"></div>
+					<div class="collapsible-body"><button id="route" class="btn-floating btn-medium waves-effect waves-light blue" style="float:right;"><i class="material-icons">Go!</i></button></div>
+				</li>
+			</ul>
+			</form>-->
+
+			<form class="form-horizontal" enctype="application/x-www-form-urlencoded" id="form-ajax">
+				<fieldset>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="origin">Origin</label>  
+					<div class="col-md-4">
+					<input id="origin" name="origin" type="text" placeholder="Enter origin address here" class="form-control input-md">
+					<span class="help-block">Or leave blank to use current location</span>  
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="destination">Destination</label>  
+					<div class="col-md-4">
+					<input id="destination" name="destination" type="text" placeholder="Enter destination address here" class="form-control input-md" required="">
+						
+					</div>
+				</div>
+
+				<!-- Button -->
+				<div class="form-group">
+					<div class="col-md-4 col-md-offset-4 text-center">
+						<button id="submit" name="submit" class="btn btn-success">Go!</button>
+					</div>
+				</div>
+
+				</fieldset>
+			</form>
 
 		</div>
+
+		<div id="googleMap">
+
+		</div>
+
 	</div>
 
 
