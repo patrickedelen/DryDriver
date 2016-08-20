@@ -53,9 +53,129 @@
                 map.overlayMapTypes.setAt(0, null);
                 console.log(response);
 
-                var historicalReports = response[historical];
-                var policeReports = response[police];
-                var userReports = response[user];
+                var historicalReports = response.historical;
+                var policeReports = response.police;
+                var userReports = response.user;
+
+
+                historicalReports.forEach(function(element) {
+                  //console.log('lat: ' + parseFloat(element.Coordinates[1]) + ' , lng: ' + parseFloat(element.Coordinates[0]))
+                  markers.push(new google.maps.Marker({
+                     position: {lat: parseFloat(element.Loc.coordinates[1]), lng: parseFloat(element.Loc.coordinates[0])},
+                    title: element.Address,
+                    icon: warningH,
+                    map: map
+                  }));
+                });
+
+                policeReports.forEach(function(element) {
+                  //console.log('lat: ' + parseFloat(element.Coordinates[1]) + ' , lng: ' + parseFloat(element.Coordinates[0]))
+                  markers.push(new google.maps.Marker({
+                     position: {lat: parseFloat(element.Loc.coordinates[1]), lng: parseFloat(element.Loc.coordinates[0])},
+                    title: element.Address,
+                    icon: warningP,
+                    map: map
+                  }));
+                });
+
+                userReports.forEach(function(element) {
+                  //console.log('lat: ' + parseFloat(element.Coordinates[1]) + ' , lng: ' + parseFloat(element.Coordinates[0]))
+                  markers.push(new google.maps.Marker({
+                     position: {lat: parseFloat(element.Loc.coordinates[1]), lng: parseFloat(element.Loc.coordinates[0])},
+                    title: element.Address,
+                    icon: warningU,
+                    map: map
+                  }));
+                });
+
+            });
+
+    });
+
+    $('#route').click(function(event) {
+    
+      event.preventDefault();
+
+      if(overlayElem.routePath) {
+        overlayElem.routePath.setMap(null);
+      }
+      if(overlayElem.startMarker) {
+        overlayElem.startMarker.setMap(null);
+      }
+      if(overlayElem.endMarker) {
+        overlayElem.endMarker.setMap(null);
+      }
+
+      while(markers[0]) {
+        markers.pop().setMap(null);
+      }
+      while(routeBoxes[0]) {
+        routeBoxes.pop().setMap(null);
+      }
+
+      console.log('Route search started');
+      var origin = document.getElementById('c_location').value;
+      var destination = document.getElementById('destination').value;
+
+      var form = $( '#form-ajax');
+
+      var formData = $(form).serialize();
+
+       if(origin == '') {
+         console.log('Getting current location');
+
+         getLocation(function(position) {
+           document.getElementById("c_location").setAttribute('value', position.coords.latitude + "," + position.coords.longitude);  
+
+           origin = document.getElementById('c_location').value;
+           destination = document.getElementById('destination').value;
+
+           form = $( '#form-ajax');
+
+           formData = $(form).serialize();
+
+           $.ajax({
+                  type: 'POST',
+                  url: 'http://localhost:8008/route', //localhost:8008/route for testing, drydriver.pedelen.com/route for prod
+                  data: formData
+              })
+              .done(function(response) {
+                map.overlayMapTypes.setAt( 0, null);
+                console.log(response);
+
+                var reLine = [];
+
+                response.line.forEach(function(element) {
+                  var i = new google.maps.LatLng({
+                    'lat': element[1],
+                    'lng': element[0]
+                  });
+                  reLine.push(i);
+                });
+
+                //polyline for the route
+                overlayElem.routePath = new google.maps.Polyline({
+                  path: reLine,
+                  geodesic: true,
+                  strokeColor: '#2456A5',
+                  strokeOpacity: 1.0,
+                  strokeWeight: 4
+                });
+
+                overlayElem.startMarker = new google.maps.Marker({
+                  position: reLine[0],
+                  icon: startI,
+                  map: map
+                });
+                overlayElem.endMarker = new google.maps.Marker({
+                  position: reLine[reLine.length - 1],
+                  icon: endI,
+                  map: map
+                });
+
+                var historicalReports = response.pins.historical;
+                var policeReports = response.pins.police;
+                var userReports = response.pins.user;
 
 
                 historicalReports.forEach(function(element) {
@@ -91,39 +211,23 @@
                   }));
                 });
 
-            });
 
-    });
+                overlayElem.routePath.setMap(map);
 
-    $('#route').click(function(event) {
-    
-      event.preventDefault();
+                var bounds = new google.maps.LatLngBounds();
+                for (var i = 0; i < reLine.length; i++) {
+                    bounds.extend(reLine[i]);
+                }
+                console.log(bounds);
+                map.fitBounds(bounds);
 
-      if(overlayElem.routePath) {
-        overlayElem.routePath.setMap(null);
-      }
-      if(overlayElem.startMarker) {
-        overlayElem.startMarker.setMap(null);
-      }
-      if(overlayElem.endMarker) {
-        overlayElem.endMarker.setMap(null);
-      }
 
-      while(markers[0]) {
-        markers.pop().setMap(null);
-      }
-      while(routeBoxes[0]) {
-        routeBoxes.pop().setMap(null);
-      }
+              });
 
-      console.log('click');
-      var origin = document.getElementById('c_location').value;
-      var destination = document.getElementById('destination').value;
+         });
 
-      var form = $( '#form-ajax');
-
-      var formData = $(form).serialize();
-
+        
+       } else {
        $.ajax({
                   type: 'POST',
                   url: 'http://localhost:8008/route', //localhost:8008/route for testing, drydriver.pedelen.com/route for prod
@@ -213,6 +317,7 @@
 
 
               });
+        }
     });
 
 

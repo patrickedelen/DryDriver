@@ -275,7 +275,7 @@ var cleanStrings = function(lineUnSplit) {
 	}
 
 	module.exports.getYear311 = function(callback) {
-		var url = 'http://houstontx.gov/heatmaps/datafiles/floodingheatmap12m.txt';
+		var url = 'http://houstontx.gov/heatmaps/datafiles/floodingheatmap24all.txt'; //http://houstontx.gov/heatmaps/datafiles/floodingheatmap24all.txt or http://houstontx.gov/heatmaps/datafiles/floodingheatmap12m.txt
 		
 		request(url, function(err, resp, body) {
 			console.log('Requesting reports from the last year...');
@@ -358,14 +358,21 @@ var cleanStrings = function(lineUnSplit) {
 
 		var nonDups = [];
 		async.each(incidents, function(element, callback) {
-			modelIncident.where('Date', element.Date).exec(function(err, incidentsReturned) {
+			var elemDate = new Date(element.Date).toISOString();
+			console.log(elemDate);
 
-				if(incidentsReturned.length === 0) {
+			modelIncident.findOne({'Date': new Date('2016-01-07T12:19:22.000Z').toISOString()}, function(err, incidentsReturned) {
+				if(err) {
+					console.log(err);
+				}
+				if(!incidentsReturned) {
+					console.log(incidentsReturned);
+					console.log(element.Date);
 					nonDups.push(element);
 					callback();
 				} else {
-					//console.log('Incident already inserted, skipping');
-					//console.log(incidentsReturned);
+					console.log('Incident already inserted, skipping');
+					console.log(incidentsReturned);
 					callback();
 				}
 			});
@@ -376,7 +383,7 @@ var cleanStrings = function(lineUnSplit) {
 
 			if(err) {
 				console.log(err);
-			} else if(nonDups.length > 0) {
+			} else if(nonDups.length == -1) {
 				//insert all the non duplicates
 				modelIncident.collection.insert(nonDups, /*{w: 0},*/ function(err, docs) {
 					if(err) {
