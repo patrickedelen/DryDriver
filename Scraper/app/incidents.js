@@ -361,7 +361,7 @@ var cleanStrings = function(lineUnSplit) {
 			var elemDate = new Date(element.Date).toISOString();
 			console.log(elemDate);
 
-			modelIncident.findOne({'Date': new Date('2016-01-07T12:19:22.000Z').toISOString()}, function(err, incidentsReturned) {
+			modelIncident.findOne({'Date': {$lte: element.Date}}, function(err, incidentsReturned) {
 				if(err) {
 					console.log(err);
 				}
