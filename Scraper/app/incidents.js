@@ -215,7 +215,8 @@ var cleanStrings = function(lineUnSplit) {
 											coordinates: [json[i].Longitude, json[i].Latitude]
 										},
 										ReportType: '911',
-										Address: json[i].Address
+										Address: json[i].Address,
+										ReportId: json[i].Id
 									});
 								}
 							} else {
@@ -275,7 +276,7 @@ var cleanStrings = function(lineUnSplit) {
 	}
 
 	module.exports.getYear311 = function(callback) {
-		var url = 'http://houstontx.gov/heatmaps/datafiles/floodingheatmap24all.txt'; //http://houstontx.gov/heatmaps/datafiles/floodingheatmap24all.txt or http://houstontx.gov/heatmaps/datafiles/floodingheatmap12m.txt
+		var url = 'http://houstontx.gov/heatmaps/datafiles/floodingheatmap12m.txt'; //http://houstontx.gov/heatmaps/datafiles/floodingheatmap24all.txt or http://houstontx.gov/heatmaps/datafiles/floodingheatmap12m.txt
 		
 		request(url, function(err, resp, body) {
 			console.log('Requesting reports from the last year...');
@@ -293,7 +294,8 @@ var cleanStrings = function(lineUnSplit) {
 						coordinates: [reportObj.longitude, reportObj.latitude],
 					},
 					ReportType       : '311',
-					Address    : reportObj.address
+					Address    : reportObj.address,
+					ReportId: reportObj.id
 				});
 					
 			}
@@ -360,19 +362,22 @@ var cleanStrings = function(lineUnSplit) {
 		async.each(incidents, function(element, callback) {
 			var elemDate = new Date(element.Date).toISOString();
 			console.log(elemDate);
+			console.log(element.Date);
 
-			modelIncident.findOne({'Date': {$lte: element.Date}}, function(err, incidentsReturned) {
+			modelIncident.findOne({'ReportId': element.ReportId}, function(err, incidentsReturned) {
+				console.log(arguments);
 				if(err) {
 					console.log(err);
 				}
 				if(!incidentsReturned) {
 					console.log(incidentsReturned);
-					console.log(element.Date);
+					console.log(element.ReportId);
 					nonDups.push(element);
 					callback();
 				} else {
 					console.log('Incident already inserted, skipping');
 					console.log(incidentsReturned);
+					console.log(element.ReportId);
 					callback();
 				}
 			});
@@ -383,7 +388,7 @@ var cleanStrings = function(lineUnSplit) {
 
 			if(err) {
 				console.log(err);
-			} else if(nonDups.length == -1) {
+			} else if(nonDups.length > 0) {
 				//insert all the non duplicates
 				modelIncident.collection.insert(nonDups, /*{w: 0},*/ function(err, docs) {
 					if(err) {
