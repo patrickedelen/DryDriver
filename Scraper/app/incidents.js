@@ -360,31 +360,29 @@ var cleanStrings = function(lineUnSplit) {
 
 		var nonDups = [];
 		async.each(incidents, function(element, callback) {
-			var elemDate = new Date(element.Date).toISOString();
-			console.log(elemDate);
-			console.log(element.Date);
 
 			modelIncident.findOne({'ReportId': element.ReportId}, function(err, incidentsReturned) {
-				console.log(arguments);
+				
 				if(err) {
 					console.log(err);
 				}
 				if(!incidentsReturned) {
-					console.log(incidentsReturned);
-					console.log(element.ReportId);
+					//console.log(incidentsReturned);
+					//console.log(element.ReportId);
 					nonDups.push(element);
 					callback();
 				} else {
-					console.log('Incident already inserted, skipping');
-					console.log(incidentsReturned);
-					console.log(element.ReportId);
+					//console.log('Incident already inserted, skipping');
+					//console.log(incidentsReturned);
+					//console.log(element.ReportId);
 					callback();
 				}
 			});
 
 		}, function(err) {
 
-			console.log('Finished searching for non-duplictes, ' + nonDups.length + ' found');
+			var dupes = incidents.length - nonDups.length;
+			console.log('Finished searching for non-duplictes, ' + nonDups.length + ' found, ' + dupes + ' duplicates');
 
 			if(err) {
 				console.log(err);

@@ -8,7 +8,8 @@ var incidentSchema = new mongoose.Schema({
 		coordinates: {type: [Number]}    //[long,lat]
 	},
 	ReportType : String,
-	Address    : String
+	Address    : String,
+	ReportId   : Number
 });
 
 incidentSchema.index({ Loc: '2dsphere' });
