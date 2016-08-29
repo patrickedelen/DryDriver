@@ -39,7 +39,7 @@
 
       $.ajax({
                   type: 'GET',
-                  url: 'http://localhost:8008/route/all' //get all events
+                  url: '/route/all' //get all events
               })
               .done(function(response) {
                 var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(29.7604,-95.3698));
