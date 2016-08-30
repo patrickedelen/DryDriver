@@ -228,7 +228,7 @@ function saveAllPolice() {
 
 
 
-saveYearIncidents();
+//saveYearIncidents();
 //saveMonthIncidents();
 //saveCurrentIncidents();
 
@@ -248,4 +248,4 @@ saveYearIncidents();
 // 	terminate();
 // });
 
-//saveAllPolice();
+saveAllPolice();

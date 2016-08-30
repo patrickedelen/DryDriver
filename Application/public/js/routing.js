@@ -136,7 +136,7 @@
 
            $.ajax({
                   type: 'POST',
-                  url: 'http://localhost:8008/route', //localhost:8008/route for testing, drydriver.pedelen.com/route for prod
+                  url: '/route', //localhost:8008/route for testing, drydriver.pedelen.com/route for prod
                   data: formData
               })
               .done(function(response) {

@@ -169,7 +169,7 @@ var cleanStrings = function(lineUnSplit) {
 	module.exports.getAllPolice = function(cb) {
 		console.log('Getting all police flooding reports...');
 		var datesChecked = [];
-		var datesNumber = 10;
+		var datesNumber = 500;
 
 		//var to store police reports
 		var reportsObj = [];
