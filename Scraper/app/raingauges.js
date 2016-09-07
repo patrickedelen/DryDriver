@@ -22,6 +22,13 @@ var modelGauge = require('./models/gauge.js');
 						for(var i = 0; i < rainfall.Sites.length; i++) {
 							console.log('Rainfall at ' + rainfall.Sites[i].Longitude + ', ' + rainfall.Sites[i].Latitude + ' was ' + rainfall.Sites[i].Rainfall);
 						}
+						var gauge = {
+							id: rainfall.Sites[i].id,
+							Loc: {
+								latitude: rainfall.Sites[i].Latitude,
+								longitude: rainfall.Sites[i].Longitude
+							}
+						};
 
 					} else {
 						console.log(err);
