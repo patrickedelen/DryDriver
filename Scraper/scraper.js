@@ -8,6 +8,9 @@ var mysql      = require('mysql');
 var mongoose   = require('mongoose');
 //mongoose.set('debug', true);
 
+var MongoClient = require('mongodb').MongoClient,
+  test = require('assert');
+
 //internal requires
 var incidents  = require('./app/incidents.js');
 var rainGauges = require('./app/raingauges.js');
