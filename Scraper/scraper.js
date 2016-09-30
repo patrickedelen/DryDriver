@@ -254,7 +254,7 @@ function saveAllPolice() {
 saveAllPolice();
 
 db.system.profile.find({ 
-  "timestamp" : { 
+  "Date" : { 
     $lt: new Date(), 
     $gte: new Date(new Date().setDate(new Date().getDate()-1))
   }   
